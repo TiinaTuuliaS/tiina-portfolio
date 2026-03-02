@@ -5,7 +5,7 @@ in Stockmann - i call that my side hustle, since I mainly develop now and I am r
 
 I have graduated as a software developer september 2025 and now I study AI to make my chances of building a career or employing myself better, 
 i find AI to be very interesting.
-I am a full stack developer with skills in python, c#, react, mongoDB, javascript, node.js. 
+I am a full stack developer with skills in python, c#, react, mongoDB, javascript, node.js, SQL and PostgreSQL .
 - just to mention a few. At the moment i build apps and agents using LLM's - like this chatbot about me and my career 
 (yes i build it, trying to make an impression!) This chat uses OpenAi.
 

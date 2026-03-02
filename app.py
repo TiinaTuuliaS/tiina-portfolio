@@ -28,25 +28,16 @@ def record_unknown_question(question):
     push(f"Recording {question}")
     return {"recorded": "ok"}
 
+
 record_user_details_json = {
     "name": "record_user_details",
     "description": "Use this tool to record that a user is interested in being in touch and provided an email address",
     "parameters": {
         "type": "object",
         "properties": {
-            "email": {
-                "type": "string",
-                "description": "The email address of this user"
-            },
-            "name": {
-                "type": "string",
-                "description": "The user's name, if they provided it"
-            }
-            ,
-            "notes": {
-                "type": "string",
-                "description": "Any additional information about the conversation that's worth recording to give context"
-            }
+            "email": {"type": "string", "description": "The email address of this user"},
+            "name": {"type": "string", "description": "The user's name, if they provided it"},
+            "notes": {"type": "string", "description": "Any additional information about the conversation that's worth recording to give context"},
         },
         "required": ["email"],
         "additionalProperties": False
@@ -59,34 +50,33 @@ record_unknown_question_json = {
     "parameters": {
         "type": "object",
         "properties": {
-            "question": {
-                "type": "string",
-                "description": "The question that couldn't be answered"
-            },
+            "question": {"type": "string", "description": "The question that couldn't be answered"},
         },
         "required": ["question"],
         "additionalProperties": False
     }
 }
 
-tools = [{"type": "function", "function": record_user_details_json},
-        {"type": "function", "function": record_unknown_question_json}]
+tools = [
+    {"type": "function", "function": record_user_details_json},
+    {"type": "function", "function": record_unknown_question_json},
+]
 
 
 class Me:
-
     def __init__(self):
         self.openai = OpenAI()
         self.name = "Tiina Siremaa"
+
         reader = PdfReader("me/linkedin.pdf")
         self.linkedin = ""
         for page in reader.pages:
             text = page.extract_text()
             if text:
                 self.linkedin += text
+
         with open("me/summary.txt", "r", encoding="utf-8") as f:
             self.summary = f.read()
-
 
     def handle_tool_call(self, tool_calls):
         results = []
@@ -96,45 +86,76 @@ class Me:
             print(f"Tool called: {tool_name}", flush=True)
             tool = globals().get(tool_name)
             result = tool(**arguments) if tool else {}
-            results.append({"role": "tool","content": json.dumps(result),"tool_call_id": tool_call.id})
+            results.append(
+                {"role": "tool", "content": json.dumps(result), "tool_call_id": tool_call.id}
+            )
         return results
-    
-    def system_prompt(self):
-        system_prompt = f"You are acting as {self.name}. You are answering questions on {self.name}'s website, \
-particularly questions related to {self.name}'s career, background, skills and experience. \
-Your responsibility is to represent {self.name} for interactions on the website as faithfully as possible. \
-You are given a summary of {self.name}'s background and LinkedIn profile which you can use to answer questions. \
-Be professional and engaging and happy, as if talking to a potential client or future employer who came across the website. \
-If you don't know the answer to any question, use your record_unknown_question tool to record the question that you couldn't answer, even if it's about something trivial or unrelated to career. \
-If the user is engaging in discussion, try to steer them towards getting in touch via email; ask for their email and record it using your record_user_details tool. "
+
+    def system_prompt(self, language="fi"):
+        if language == "en":
+            lang_instruction = "Always respond in English."
+            steer_instruction = (
+                "If the user is engaging in discussion, try to steer them towards getting in touch via email; "
+                "ask for their email and record it using your record_user_details tool."
+            )
+        else:
+            lang_instruction = "Vastaa aina suomeksi."
+            steer_instruction = (
+                "Jos käyttäjä keskustelee pidempään, ohjaa ystävällisesti siihen että he ottavat yhteyttä sähköpostilla; "
+                "pyydä sähköposti ja tallenna se record_user_details-työkalulla."
+            )
+
+        system_prompt = (
+            f"You are acting as {self.name}. "
+            f"{lang_instruction} "
+            f"You are answering questions on {self.name}'s website, particularly questions related to "
+            f"{self.name}'s career, background, skills and experience. "
+            f"Your responsibility is to represent {self.name} as faithfully as possible. "
+            f"You are given a summary of {self.name}'s background and LinkedIn profile which you can use to answer questions. "
+            f"Be professional, engaging and friendly, as if talking to a potential client or future employer. "
+            f"If you don't know the answer to any question, use your record_unknown_question tool to record the question. "
+            f"{steer_instruction}"
+        )
 
         system_prompt += f"\n\n## Summary:\n{self.summary}\n\n## LinkedIn Profile:\n{self.linkedin}\n\n"
         system_prompt += f"With this context, please chat with the user, always staying in character as {self.name}."
         return system_prompt
-    
-    def chat(self, message, history):
-        messages = [{"role": "system", "content": self.system_prompt()}] + history + [{"role": "user", "content": message}]
+
+    def chat(self, message, history, language="fi"):
+        history = history or []
+        messages = (
+            [{"role": "system", "content": self.system_prompt(language)}]
+            + history
+            + [{"role": "user", "content": message}]
+        )
+
         done = False
         while not done:
-            response = self.openai.chat.completions.create(model="gpt-4o-mini", messages=messages, tools=tools)
-            if response.choices[0].finish_reason=="tool_calls":
-                message = response.choices[0].message
-                tool_calls = message.tool_calls
+            response = self.openai.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=messages,
+                tools=tools
+            )
+
+            if response.choices[0].finish_reason == "tool_calls":
+                message_obj = response.choices[0].message
+                tool_calls = message_obj.tool_calls
                 results = self.handle_tool_call(tool_calls)
-                messages.append(message)
+                messages.append(message_obj)
                 messages.extend(results)
             else:
                 done = True
+
         return response.choices[0].message.content
-    
+
 
 if __name__ == "__main__":
     me = Me()
 
     custom_css = """
-    .app-wrap { 
-        max-width: 1100px; 
-        margin: 0 auto; 
+    .app-wrap {
+        max-width: 1100px;
+        margin: 0 auto;
         padding: 18px;
     }
 
@@ -168,72 +189,146 @@ if __name__ == "__main__":
     }
     """
 
-    quick_questions = [
+    # Staattiset tekstit kielittäin
+    texts = {
+        "fi": {
+            "title": "<h1>💬 Tiinan CV-chatbot</h1>",
+            "description": "<p>Kysy minusta, osaamisestani ja projekteistani. Vastaan CV:n ja profiilitietojen pohjalta.</p>",
+            "footer": """
+                <div class="footer">
+                  Vinkki: kysy konkreettisesti esim. “mitä teit viime projektissa?” tai “miksi olisit hyvä tähän rooliin?”.
+                </div>
+            """,
+            "quick_title": "**Pikakysymykset:**",
+            "placeholder": "Kirjoita kysymys ja paina Enter…",
+            "linkedin_label": "🔗 LinkedIn",
+        },
+        "en": {
+            "title": "<h1>💬 Tiina's CV Chatbot</h1>",
+            "description": "<p>Ask about my background, skills and projects. I respond based on my CV and profile.</p>",
+            "footer": """
+                <div class="footer">
+                  Tip: ask something concrete like “what did you do in your last project?” or “why would you fit this role?”.
+                </div>
+            """,
+            "quick_title": "**Quick questions:**",
+            "placeholder": "Type a question and press Enter…",
+            "linkedin_label": "🔗 LinkedIn",
+        }
+    }
+
+    quick_questions_fi = [
         "Kerro lyhyesti taustastasi ja vahvuuksistasi.",
         "Minkälaisiin rooleihin haet ja miksi?",
         "Mitä teknologioita käytät eniten ja missä olet vahvimmillasi?",
-        "Millaisissa projekteissa olet ollut mukana?",
         "Miten sinuun saa parhaiten yhteyden?",
         "Miksi olisit hyvä juuri meidän tiimiin?",
     ]
 
-    def send_quick(question, history):
+    quick_questions_en = [
+        "Briefly tell me your background and strengths.",
+        "What kinds of roles are you looking for and why?",
+        "Which technologies do you use most, and what are you strongest at?",
+        "What’s the best way to reach you?",
+        "Why would you be a great fit for our team?",
+    ]
+
+    def send_quick(question, history, lang):
         history = history or []
-        assistant = me.chat(question, history)
+        assistant = me.chat(question, history, lang)
         new_history = history + [
             {"role": "user", "content": question},
             {"role": "assistant", "content": assistant},
         ]
         return new_history, ""
 
+    def on_language_change(lang):
+        qs = quick_questions_en if lang == "en" else quick_questions_fi
+        updates = [gr.update(value=q) for q in qs]
+
+        return (
+            lang,  # lang_state
+            *updates,  # button texts
+            gr.update(placeholder=texts[lang]["placeholder"]),  # textbox placeholder
+            gr.update(value=texts[lang]["title"]),  # title html
+            gr.update(value=texts[lang]["description"]),  # description html
+            gr.update(value=texts[lang]["footer"]),  # footer html
+            gr.update(value=texts[lang]["quick_title"]),  # quick title markdown
+            gr.update(value=texts[lang]["linkedin_label"]),  # linkedin link label (html)
+        )
+
     with gr.Blocks(theme=gr.themes.Soft(), css=custom_css) as demo:
         with gr.Row(elem_classes=["app-wrap"]):
 
-            # VASEN PALSTA: info + napit
+            # VASEN PALSTA
             with gr.Column(scale=2, min_width=360, elem_classes=["left"]):
-                gr.HTML(
-                    """
-                    <h1>💬 Tiinan CV-chatbot</h1>
-                    <p>Kysy minusta, osaamisestani ja projekteistani. Vastaan CV:n ja profiilitietojen pohjalta.</p>
+                title_html = gr.HTML(texts["fi"]["title"])
+                desc_html = gr.HTML(texts["fi"]["description"])
+
+                # LinkedIn linkki: tehdään label dynaamiseksi HTML:n kautta
+                linkedin_html = gr.HTML(
+                    f"""
                     <a class="link" href="https://www.linkedin.com/in/tiina-siremaa-7589a61b5/" target="_blank" rel="noopener noreferrer">
-                      🔗 LinkedIn
+                      {texts["fi"]["linkedin_label"]}
                     </a>
                     """
                 )
 
-                gr.Markdown("**Pikakysymykset:**", elem_classes=["cards-title"])
+                # Kielivalitsin + state
+                language = gr.Radio(
+                    choices=[("Suomi", "fi"), ("English", "en")],
+                    value="fi",
+                    label="Language / Kieli",
+                )
+                lang_state = gr.State("fi")
 
+                quick_title_md = gr.Markdown(texts["fi"]["quick_title"], elem_classes=["cards-title"])
+
+                # Nappiruudukko
                 with gr.Row(elem_classes=["qgrid"]):
                     with gr.Column():
-                        btns_left = [gr.Button(q) for q in quick_questions[::2]]
+                        btns_left = [gr.Button(q) for q in quick_questions_fi[::2]]
                     with gr.Column():
-                        btns_right = [gr.Button(q) for q in quick_questions[1::2]]
+                        btns_right = [gr.Button(q) for q in quick_questions_fi[1::2]]
 
-                gr.HTML(
-                    """
-                    <div class="footer">
-                      Vinkki: kysy konkreettisesti esim. “mitä teit viime projektissa?” tai “miksi olisit hyvä tähän rooliin?”.
-                    </div>
-                    """
-                )
+                all_btns = btns_left + btns_right
+
+                footer_html = gr.HTML(texts["fi"]["footer"])
 
             # OIKEA PALSTA: chat
             with gr.Column(scale=3, min_width=520):
                 chat = gr.ChatInterface(
-                    fn=me.chat,
+                    fn=lambda message, history, lang: me.chat(message, history, lang),
+                    additional_inputs=[lang_state],
                     title=None,
                     description=None,
                     textbox=gr.Textbox(
-                        placeholder="Kirjoita kysymys ja paina Enter…",
+                        placeholder=texts["fi"]["placeholder"],
                         autofocus=True,
                     ),
                 )
 
-            # Nappi -> suoraan chattiin
-            for b in (btns_left + btns_right):
+            # Kieli -> päivitä state + napit + placeholder + staattiset tekstit
+            language.change(
+                fn=on_language_change,
+                inputs=[language],
+                outputs=[
+                    lang_state,
+                    *all_btns,
+                    chat.textbox,
+                    title_html,
+                    desc_html,
+                    footer_html,
+                    quick_title_md,
+                    linkedin_html,
+                ],
+            )
+
+            # Pikakysymysnapit -> suoraan chattiin
+            for b in all_btns:
                 b.click(
                     fn=send_quick,
-                    inputs=[b, chat.chatbot],
+                    inputs=[b, chat.chatbot, lang_state],
                     outputs=[chat.chatbot, chat.textbox],
                 )
 
