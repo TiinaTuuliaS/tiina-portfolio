@@ -153,14 +153,26 @@ if __name__ == "__main__":
     me = Me()
 
     custom_css = """
+    body {
+        background: #f5f7fb;
+    }
+
     .app-wrap {
-        max-width: 1100px;
+        max-width: 1400px;
         margin: 0 auto;
         padding: 18px;
     }
 
-    .left h1 { margin: 0 0 6px 0; font-size: 26px; line-height: 1.15; }
-    .left p { margin: 0 0 10px 0; opacity: .85; }
+    .left h1 {
+        margin: 0 0 6px 0;
+        font-size: 26px;
+        line-height: 1.15;
+    }
+
+    .left p {
+        margin: 0 0 10px 0;
+        opacity: .85;
+    }
 
     .link {
         display: inline-block;
@@ -170,9 +182,14 @@ if __name__ == "__main__":
         border-radius: 999px;
         padding: 6px 10px;
         color: inherit;
+        background: white;
     }
 
-    .cards-title { margin: 8px 0 8px 0; font-weight: 600; opacity: .9; }
+    .cards-title {
+        margin: 8px 0 8px 0;
+        font-weight: 600;
+        opacity: .9;
+    }
 
     .qgrid button {
         width: 100%;
@@ -187,9 +204,17 @@ if __name__ == "__main__":
         opacity: .72;
         font-size: 12px;
     }
+
+    .chat-card {
+        border-radius: 18px;
+        border: 1px solid rgba(0,0,0,.08);
+        background: rgba(255,255,255,.88);
+        backdrop-filter: blur(6px);
+        padding: 10px;
+        box-shadow: 0 8px 24px rgba(0,0,0,.05);
+    }
     """
 
-    # Staattiset tekstit kielittäin
     texts = {
         "fi": {
             "title": "<h1>💬 Tiinan CV-chatbot</h1>",
@@ -218,16 +243,14 @@ if __name__ == "__main__":
     }
 
     quick_questions_fi = [
-        "Kerro lyhyesti taustastasi ja vahvuuksistasi.",
-        "Minkälaisiin rooleihin haet ja miksi?",
+        "Kerro lyhyesti taustastasi ja vahvuuksistasi",
         "Mitä teknologioita käytät eniten ja missä olet vahvimmillasi?",
         "Miten sinuun saa parhaiten yhteyden?",
         "Miksi olisit hyvä juuri meidän tiimiin?",
     ]
 
     quick_questions_en = [
-        "Briefly tell me your background and strengths.",
-        "What kinds of roles are you looking for and why?",
+        "Briefly tell me your background and strengths",
         "Which technologies do you use most, and what are you strongest at?",
         "What’s the best way to reach you?",
         "Why would you be a great fit for our team?",
@@ -247,25 +270,30 @@ if __name__ == "__main__":
         updates = [gr.update(value=q) for q in qs]
 
         return (
-            lang,  # lang_state
-            *updates,  # button texts
-            gr.update(placeholder=texts[lang]["placeholder"]),  # textbox placeholder
-            gr.update(value=texts[lang]["title"]),  # title html
-            gr.update(value=texts[lang]["description"]),  # description html
-            gr.update(value=texts[lang]["footer"]),  # footer html
-            gr.update(value=texts[lang]["quick_title"]),  # quick title markdown
-            gr.update(value=texts[lang]["linkedin_label"]),  # linkedin link label (html)
+            lang,
+            *updates,
+            gr.update(placeholder=texts[lang]["placeholder"]),
+            gr.update(value=texts[lang]["title"]),
+            gr.update(value=texts[lang]["description"]),
+            gr.update(value=texts[lang]["footer"]),
+            gr.update(value=texts[lang]["quick_title"]),
+            gr.update(
+                value=f"""
+                <a class="link" href="https://www.linkedin.com/in/tiina-siremaa-7589a61b5/" target="_blank" rel="noopener noreferrer">
+                  {texts[lang]["linkedin_label"]}
+                </a>
+                """
+            ),
         )
 
     with gr.Blocks(theme=gr.themes.Soft(), css=custom_css) as demo:
         with gr.Row(elem_classes=["app-wrap"]):
 
             # VASEN PALSTA
-            with gr.Column(scale=2, min_width=360, elem_classes=["left"]):
+            with gr.Column(scale=1, min_width=320, elem_classes=["left"]):
                 title_html = gr.HTML(texts["fi"]["title"])
                 desc_html = gr.HTML(texts["fi"]["description"])
 
-                # LinkedIn linkki: tehdään label dynaamiseksi HTML:n kautta
                 linkedin_html = gr.HTML(
                     f"""
                     <a class="link" href="https://www.linkedin.com/in/tiina-siremaa-7589a61b5/" target="_blank" rel="noopener noreferrer">
@@ -274,7 +302,6 @@ if __name__ == "__main__":
                     """
                 )
 
-                # Kielivalitsin + state
                 language = gr.Radio(
                     choices=[("Suomi", "fi"), ("English", "en")],
                     value="fi",
@@ -284,7 +311,6 @@ if __name__ == "__main__":
 
                 quick_title_md = gr.Markdown(texts["fi"]["quick_title"], elem_classes=["cards-title"])
 
-                # Nappiruudukko
                 with gr.Row(elem_classes=["qgrid"]):
                     with gr.Column():
                         btns_left = [gr.Button(q) for q in quick_questions_fi[::2]]
@@ -296,19 +322,19 @@ if __name__ == "__main__":
                 footer_html = gr.HTML(texts["fi"]["footer"])
 
             # OIKEA PALSTA: chat
-            with gr.Column(scale=3, min_width=520):
-                chat = gr.ChatInterface(
-                    fn=lambda message, history, lang: me.chat(message, history, lang),
-                    additional_inputs=[lang_state],
-                    title=None,
-                    description=None,
-                    textbox=gr.Textbox(
-                        placeholder=texts["fi"]["placeholder"],
-                        autofocus=True,
-                    ),
-                )
+            with gr.Column(scale=5, min_width=700):
+                with gr.Group(elem_classes=["chat-card"]):
+                    chat = gr.ChatInterface(
+                        fn=lambda message, history, lang: me.chat(message, history, lang),
+                        additional_inputs=[lang_state],
+                        title=None,
+                        description=None,
+                        textbox=gr.Textbox(
+                            placeholder=texts["fi"]["placeholder"],
+                            autofocus=True,
+                        ),
+                    )
 
-            # Kieli -> päivitä state + napit + placeholder + staattiset tekstit
             language.change(
                 fn=on_language_change,
                 inputs=[language],
@@ -324,7 +350,6 @@ if __name__ == "__main__":
                 ],
             )
 
-            # Pikakysymysnapit -> suoraan chattiin
             for b in all_btns:
                 b.click(
                     fn=send_quick,
