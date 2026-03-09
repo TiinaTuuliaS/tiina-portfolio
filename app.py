@@ -9,6 +9,7 @@ import gradio as gr
 
 load_dotenv(override=True)
 
+
 def push(text):
     requests.post(
         "https://api.pushover.net/1/messages.json",
@@ -23,6 +24,7 @@ def push(text):
 def record_user_details(email, name="Name not provided", notes="not provided"):
     push(f"Recording {name} with email {email} and notes {notes}")
     return {"recorded": "ok"}
+
 
 def record_unknown_question(question):
     push(f"Recording {question}")
@@ -153,67 +155,124 @@ if __name__ == "__main__":
     me = Me()
 
     custom_css = """
-    body {
-        background: #f5f7fb;
-    }
+body {
+    background: #f5f7fb;
+    margin: 0;
+}
 
-    .app-wrap {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 18px;
-    }
+.app-wrap {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 18px;
+    min-height: 100vh;
+    align-items: stretch;
+}
 
-    .left h1 {
-        margin: 0 0 6px 0;
-        font-size: 26px;
-        line-height: 1.15;
-    }
+.left h1 {
+    margin: 0 0 6px 0;
+    font-size: 26px;
+    line-height: 1.15;
+}
 
-    .left p {
-        margin: 0 0 10px 0;
-        opacity: .85;
-    }
+.left p {
+    margin: 0 0 10px 0;
+    opacity: .85;
+}
 
-    .link {
-        display: inline-block;
-        margin: 0 0 14px 0;
-        text-decoration: none;
-        border: 1px solid rgba(0,0,0,.12);
-        border-radius: 999px;
-        padding: 6px 10px;
-        color: inherit;
-        background: white;
-    }
+.link {
+    display: inline-block;
+    margin: 0 0 14px 0;
+    text-decoration: none;
+    border: 1px solid rgba(0,0,0,.12);
+    border-radius: 999px;
+    padding: 6px 10px;
+    color: inherit;
+    background: white;
+}
 
-    .cards-title {
-        margin: 8px 0 8px 0;
-        font-weight: 600;
-        opacity: .9;
-    }
+.cards-title {
+    margin: 8px 0 8px 0;
+    font-weight: 600;
+    opacity: .9;
+}
 
-    .qgrid button {
-        width: 100%;
-        text-align: left;
-        border-radius: 14px !important;
-        padding: 12px 12px !important;
-        border: 1px solid rgba(0,0,0,.10) !important;
-    }
+.qgrid button {
+    width: 100%;
+    text-align: left;
+    border-radius: 10px !important;
+    padding: 6px 8px !important;
+    min-height: 36px !important;
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+    border: 1px solid rgba(0,0,0,.10) !important;
+}
 
-    .footer {
-        margin-top: 10px;
-        opacity: .72;
-        font-size: 12px;
-    }
+.footer {
+    margin-top: 10px;
+    opacity: .72;
+    font-size: 12px;
+}
 
-    .chat-card {
-        border-radius: 18px;
-        border: 1px solid rgba(0,0,0,.08);
-        background: rgba(255,255,255,.88);
-        backdrop-filter: blur(6px);
-        padding: 10px;
-        box-shadow: 0 8px 24px rgba(0,0,0,.05);
-    }
-    """
+.fill-height {
+    min-height: calc(100vh - 36px);
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-shell {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.chat-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    border-radius: 18px;
+    border: 1px solid rgba(0,0,0,.08);
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(6px);
+    padding: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.05);
+}
+
+/* Groupin sisin wrapper */
+.chat-card > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+/* ChatInterface wrapperit */
+.chat-card .gradio-container,
+.chat-card .gr-block,
+.chat-card [class*="wrap"],
+.chat-card [class*="container"] {
+    min-height: 0;
+}
+
+/* Varsinainen chatinterface kokonaisuutena */
+.chat-card .gr-chat-interface,
+.chat-card [class*="chat-interface"] {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+/* Varsinainen keskusteluikkuna */
+.chat-card [data-testid="chatbot"],
+.chat-card .chatbot {
+    flex: 1 !important;
+    min-height: 0 !important;
+    height: 100% !important;
+    overflow-y: auto !important;
+}
+"""
 
     texts = {
         "fi": {
@@ -289,7 +348,6 @@ if __name__ == "__main__":
     with gr.Blocks(theme=gr.themes.Soft(), css=custom_css) as demo:
         with gr.Row(elem_classes=["app-wrap"]):
 
-            # VASEN PALSTA
             with gr.Column(scale=1, min_width=320, elem_classes=["left"]):
                 title_html = gr.HTML(texts["fi"]["title"])
                 desc_html = gr.HTML(texts["fi"]["description"])
@@ -309,7 +367,10 @@ if __name__ == "__main__":
                 )
                 lang_state = gr.State("fi")
 
-                quick_title_md = gr.Markdown(texts["fi"]["quick_title"], elem_classes=["cards-title"])
+                quick_title_md = gr.Markdown(
+                    texts["fi"]["quick_title"],
+                    elem_classes=["cards-title"]
+                )
 
                 with gr.Row(elem_classes=["qgrid"]):
                     with gr.Column():
@@ -321,19 +382,22 @@ if __name__ == "__main__":
 
                 footer_html = gr.HTML(texts["fi"]["footer"])
 
-            # OIKEA PALSTA: chat
-            with gr.Column(scale=5, min_width=700):
-                with gr.Group(elem_classes=["chat-card"]):
-                    chat = gr.ChatInterface(
-                        fn=lambda message, history, lang: me.chat(message, history, lang),
-                        additional_inputs=[lang_state],
-                        title=None,
-                        description=None,
-                        textbox=gr.Textbox(
-                            placeholder=texts["fi"]["placeholder"],
-                            autofocus=True,
-                        ),
-                    )
+            with gr.Column(scale=5, min_width=700, elem_classes=["fill-height"]):
+                with gr.Group(elem_classes=["chat-shell"]):
+                    with gr.Group(elem_classes=["chat-card"]):
+                        chatbot_ui = gr.Chatbot(height="100%")
+
+                        chat = gr.ChatInterface(
+                            fn=lambda message, history, lang: me.chat(message, history, lang),
+                            additional_inputs=[lang_state],
+                            chatbot=chatbot_ui,
+                            title=None,
+                            description=None,
+                            textbox=gr.Textbox(
+                                placeholder=texts["fi"]["placeholder"],
+                                autofocus=True,
+                            ),
+                        )
 
             language.change(
                 fn=on_language_change,
@@ -353,8 +417,8 @@ if __name__ == "__main__":
             for b in all_btns:
                 b.click(
                     fn=send_quick,
-                    inputs=[b, chat.chatbot, lang_state],
-                    outputs=[chat.chatbot, chat.textbox],
+                    inputs=[b, chatbot_ui, lang_state],
+                    outputs=[chatbot_ui, chat.textbox],
                 )
 
     demo.launch()
