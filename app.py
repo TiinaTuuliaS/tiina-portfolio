@@ -360,6 +360,14 @@ body {
                     """
                 )
 
+                github_html = gr.HTML(
+                    """
+                    <a class="link" href="https://github.com/TiinaTuuliaS" target="_blank" rel="noopener noreferrer">
+                        💻 GitHub
+                    </a>
+                    """
+                )
+
                 language = gr.Radio(
                     choices=[("Suomi", "fi"), ("English", "en")],
                     value="fi",
