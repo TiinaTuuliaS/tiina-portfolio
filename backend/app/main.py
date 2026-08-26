@@ -48,6 +48,8 @@ app = FastAPI(title="Tiina's CV Chatbot API", version="1.0.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[os.getenv("FRONTEND_ORIGIN", "http://localhost:5173")],
+    # Vite chooses the next free local port (for example 5174) during development.
+    allow_origin_regex=r"^https?://(localhost|127\.0\.0\.1)(:\d+)?$",
     allow_methods=["GET", "POST"],
     allow_headers=["Content-Type"],
 )

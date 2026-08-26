@@ -1,64 +1,26 @@
-My name is Tiina, I am originally from Lahti, Finland but I moved to Tampere about 9 years ago to work as a visual merchandizer. 
+# Tiina Siremaa
 
-Now I work as a part time visual merchandizer and a sales advisor
-in Stockmann - i call that my side hustle, since I mainly develop now and I am really into AI and loking for a job or self employment in this field.
+I am a Tampere-based full-stack developer with a background in visual merchandising, retail leadership and customer experience. I graduated as a software developer in September 2025 and am now focused on building a career in software and AI.
 
-I have graduated as a software developer september 2025 and now I study AI to make my chances of building a career or employing myself better, 
-i find AI to be very interesting.
-I am a full stack developer with skills in python, c#, react, mongoDB, javascript, node.js, SQL and PostgreSQL .
-- just to mention a few. At the moment i build apps and agents using LLM's - like this chatbot about me and my career 
-(yes i build it, trying to make an impression!) This chat uses OpenAi.
+## What I build
 
+I build web applications and AI-powered experiences, especially projects that use LLMs in practical, user-friendly ways. This CV chatbot is one example: I designed and built it to make my background, skills and personality easier to explore than through a traditional CV alone.
 
-I am a ''gym girl''  and I do long distance cycling - last summer I rode from Oulu to Vaasa for example, I also love pizza and food in general - good food good mood as I say.
- I laugh a lot and enjoy life a lot. I am looking for a job as a developer. I have experience working as a manager in retail and 
- I have worked in big projects such as opening new stores and leading people in customer service. I have also volunteered in a envinronmental
- group a few years a go and nature and climate issues are close to my heart. 
- I am a people person with great communication and teamwork skills and have led teams when opening stores in finland and when working as a part time store manager.
+My technical toolkit includes Python, JavaScript, Typescript, React, Node.js, C#, MongoDB, SQL and PostgreSQL. I have also worked with REST APIs, authentication, cloud services, payments and modern frontend tooling.
 
+## How I work
 
- You can contact me by giving your email address here and it will be delivered to me, via my email, or via my linked in site.
+I combine technical curiosity with strong people skills. My previous work in retail and visual merchandising has taught me how to understand customers, communicate clearly, lead teams and turn ideas into polished experiences.
 
+I have led teams during store openings in Finland, worked in management roles and taken responsibility in fast-paced customer-facing environments. I bring that same ownership, collaboration and practical mindset into development work.
 
-Here is a list of technolofgies i used in my recent project:
+## Current focus
 
-### Backend
+I am actively developing my skills in AI, LLM applications and full-stack development. I am looking for a developer role, a collaborative project or an opportunity to build useful products as a freelancer.
 
-| Teknologia        | Käyttötarkoitus |
-|-------------------|-----------------|
-| **Express**       | HTTP-palvelimen ja REST API -reittien toteutus |
-| **Mongoose**      | MongoDB-tietokannan käyttö ja skeemat |
-| **JWT (jsonwebtoken)** | Käyttäjien autentikointi ja token-pohjainen kirjautuminen |
-| **bcryptjs**      | Salasanojen salaus ja vertailu |
-| **Cookie-parser** | Evästeiden käsittely Expressissä |
-| **dotenv**        | Ympäristömuuttujien hallinta `.env`-tiedostosta |
-| **Cloudinary**    | Kuvien tallennus ja hallinta pilvipalvelussa |
-| **Stripe**        | Maksujen käsittely |
-| **ioredis**       | Redis-tietokannan käyttö (välimuisti, sessiot, jonot) |
-| **Axios**         | HTTP-kutsut muihin palveluihin tarvittaessa |
-| **Nodemon** (dev) | Kehitystyökalu, joka käynnistää serverin automaattisesti uudelleen koodin muuttuessa |
+## Beyond code
+
+I am a long-distance cyclist, a gym enthusiast and a big believer in good food and good mood. I enjoy learning, laughing and working with people who care about building things well. Nature and climate issues are also important to me.
 
 
-### Frontend
-
-| Teknologia             | Käyttötarkoitus |
-|------------------------|-----------------|
-| **React**              | Käyttöliittymän rakentaminen |
-| **React DOM**          | React-komponenttien renderöinti selaimeen |
-| **React Router DOM**   | Sivunavigointi (reititys) |
-| **Zustand**            | Sovelluksen tilanhallinta |
-| **Framer Motion**      | Animaatioiden toteutus |
-| **React Confetti**     | Konfetti-efektit (esim. onnistumisilmoituksissa) |
-| **Lucide React**       | Ikonikirjasto |
-| **Axios**              | API- ja HTTP-kutsujen tekeminen |
-| **@stripe/stripe-js**  | Stripe-maksujen integrointi |
-| **Recharts**           | Kaavioiden ja graafien visualisointi |
-| **Tailwind CSS**       | Tyylittely (CSS-kehys) |
-| **PostCSS + Autoprefixer** | CSS:n käsittely ja selainyhteensopivuus |
-| **Vite**               | Kehitys- ja build-työkalu |
-| **@vitejs/plugin-react** | React-tuki Viteen |
-| **ESLint**             | Koodin laadun ja virheiden tarkistus |
-| **eslint-plugin-react-hooks** | React hooks -käytön tarkistus |
-| **eslint-plugin-react-refresh** | HMR (Hot Module Reload) -tuki Reactille |
-| **@eslint/js, globals** | ESLintin lisäkonfiguraatiot |
-| **@types/react, @types/react-dom** | TypeScript-tyypitykset Reactille (autocompletion/editorituki) |
+If you would like to discuss an opportunity, project or collaboration, feel free to use the contact form or connect with me on LinkedIn.
