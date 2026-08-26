@@ -324,6 +324,7 @@ body {
         ]
         return new_history, ""
 
+
     def on_language_change(lang):
         qs = quick_questions_en if lang == "en" else quick_questions_fi
         updates = [gr.update(value=q) for q in qs]
@@ -336,14 +337,8 @@ body {
             gr.update(value=texts[lang]["description"]),
             gr.update(value=texts[lang]["footer"]),
             gr.update(value=texts[lang]["quick_title"]),
-            gr.update(
-                value=f"""
-                <a class="link" href="https://www.linkedin.com/in/tiina-siremaa-7589a61b5/" target="_blank" rel="noopener noreferrer">
-                  {texts[lang]["linkedin_label"]}
-                </a>
-                """
-            ),
         )
+        
 
     with gr.Blocks(theme=gr.themes.Soft(), css=custom_css) as demo:
         with gr.Row(elem_classes=["app-wrap"]):
@@ -352,21 +347,27 @@ body {
                 title_html = gr.HTML(texts["fi"]["title"])
                 desc_html = gr.HTML(texts["fi"]["description"])
 
-                linkedin_html = gr.HTML(
-                    f"""
-                    <a class="link" href="https://www.linkedin.com/in/tiina-siremaa-7589a61b5/" target="_blank" rel="noopener noreferrer">
-                      {texts["fi"]["linkedin_label"]}
-                    </a>
-                    """
-                )
+                links_html = gr.HTML(
+            """
+            <div style="display:flex; flex-direction:column; gap:8px;">
 
-                github_html = gr.HTML(
-                    """
-                    <a class="link" href="https://github.com/TiinaTuuliaS" target="_blank" rel="noopener noreferrer">
-                        💻 GitHub
-                    </a>
-                    """
-                )
+            <a class="link"
+           href="https://www.linkedin.com/in/tiina-siremaa-7589a61b5/"
+           target="_blank"
+           rel="noopener noreferrer">
+           🔗 LinkedIn
+        </a>
+
+        <a class="link"
+           href="https://github.com/TiinaTuuliaS"
+           target="_blank"
+           rel="noopener noreferrer">
+           💻 GitHub
+        </a>
+
+    </div>
+    """
+)
 
                 language = gr.Radio(
                     choices=[("Suomi", "fi"), ("English", "en")],
@@ -408,19 +409,18 @@ body {
                         )
 
             language.change(
-                fn=on_language_change,
-                inputs=[language],
-                outputs=[
-                    lang_state,
-                    *all_btns,
-                    chat.textbox,
-                    title_html,
-                    desc_html,
-                    footer_html,
-                    quick_title_md,
-                    linkedin_html,
-                ],
-            )
+    fn=on_language_change,
+    inputs=[language],
+    outputs=[
+    lang_state,
+    *all_btns,
+    chat.textbox,
+    title_html,
+    desc_html,
+    footer_html,
+    quick_title_md,
+],
+)
 
             for b in all_btns:
                 b.click(
