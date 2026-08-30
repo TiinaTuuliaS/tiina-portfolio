@@ -5,23 +5,21 @@ A bilingual portfolio chatbot with a React/Vite frontend, FastAPI backend, OpenA
 ## Run locally
 
 1. Copy `.env.example` to `.env` and fill in the backend values. Copy `frontend/.env.example` to `frontend/.env` and set the deployed API URL. `RESEND_FROM` must use a sender/domain verified in Resend.
-2. Create and activate a Python virtual environment, then install backend dependencies:
+2. Create a Python virtual environment, then install backend dependencies:
 
    ```powershell
    py -m venv backend\.venv
-   .\backend\.venv\Scripts\Activate.ps1
-   pip install -r backend\requirements.txt
-   cd backend
-   uvicorn app.main:app --reload
+   .\backend\.venv\Scripts\python.exe -m pip install -r backend\requirements.txt
    ```
 
-3. In another terminal, start the frontend:
+3. Start the backend and frontend in separate terminals from the project root:
 
    ```powershell
-   cd frontend
-   npm install
-   npm run dev
+   npm run dev:backend
+   npm run dev:frontend
    ```
+
+   Run `cd frontend; npm install` once before the first frontend start, or whenever its dependencies change.
 
 Open the URL printed by Vite, normally `http://localhost:5173`.
 
