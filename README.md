@@ -1,6 +1,6 @@
-# Tiina's CV Chatbot
+# Tiina's Developer Portfolio
 
-A bilingual portfolio chatbot with a React/Vite frontend, FastAPI backend, OpenAI Responses API and a Resend-powered contact form.
+A bilingual developer portfolio with a React/Vite frontend, FastAPI backend, AI-powered CV chat, and a Resend-powered contact form.
 
 ## Run locally
 
@@ -31,4 +31,4 @@ Open the URL printed by Vite, normally `http://localhost:5173`.
 - `FRONTEND_ORIGIN`: the only browser origin permitted to call the API.
 - `frontend/.env` / `VITE_API_URL`: public backend URL used by the browser.
 
-The backend reads `me/summary.txt` and `me/linkedin.pdf` as the CV chatbot's source material. Keep personal API keys out of the frontend and out of Git.
+The backend reads `me/summary.txt` and `me/linkedin.pdf` as the AI CV chat's source material. Keep personal API keys out of the frontend and out of Git.

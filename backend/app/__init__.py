@@ -1,1 +1,1 @@
-"""CV chatbot backend."""
+"""Developer portfolio backend."""

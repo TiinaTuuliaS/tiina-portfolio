@@ -1,0 +1,21 @@
+.skills-groups {
+  display: grid;
+  gap: 18px;
+}
+
+.skill-group h3 {
+  margin: 0 0 8px;
+  color: #4d4664;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -.1px;
+}
+
+.skill-group.exploring h3 {
+  color: #8067d1;
+}
+
+.skill-group.exploring .skill-cloud span {
+  background: #fff9dc;
+  border-color: #eee2a7;
+}

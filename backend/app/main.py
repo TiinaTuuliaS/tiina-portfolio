@@ -44,7 +44,7 @@ def load_profile() -> str:
 
 
 PROFILE = load_profile()
-app = FastAPI(title="Tiina's CV Chatbot API", version="1.0.0")
+app = FastAPI(title="Tiina's Developer Portfolio API", version="1.0.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[os.getenv("FRONTEND_ORIGIN", "http://localhost:5173")],
