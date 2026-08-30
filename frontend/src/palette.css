@@ -1,0 +1,139 @@
+:root {
+  color: #342b3d;
+  background: #fff;
+}
+
+body {
+  background: #fffafc;
+}
+
+main {
+  background: linear-gradient(180deg, #fff 0%, #fff9fc 54%, #fff 100%);
+}
+
+.grid {
+  opacity: .16;
+  background-image: linear-gradient(#a78bfa33 1px, transparent 1px), linear-gradient(90deg, #d58d8d29 1px, transparent 1px);
+}
+
+.orb-one { background: #a78bfa; }
+.orb-two { background: #d58d8d; }
+
+.hero {
+  border-radius: 34px;
+  background: linear-gradient(112deg, #a78bfa 0%, #bd8cc6 46%, #d58d8d 100%);
+  box-shadow: 0 22px 55px #9e6e9224;
+}
+
+.hero .eyebrow,
+.hero .intro,
+.hero .mini-stats {
+  color: #fff;
+}
+
+.hero h1,
+.hero h1 em {
+  color: #fff;
+  text-shadow: none;
+}
+
+.hero .ghost {
+  border-color: #ffffff9c;
+  background: #ffffff36;
+  color: #fff;
+}
+
+.hero .primary {
+  background: #fff;
+  color: #6f4d65;
+  box-shadow: 0 8px 20px #5b3f5b28;
+}
+
+.logo span,
+.eyebrow,
+.quick-list span,
+.about-card a {
+  color: #a778d2;
+}
+
+.language {
+  border-color: #e7cbdc;
+  background: #fff;
+}
+
+.language .active,
+.chat-input button {
+  background: #8b6195;
+}
+
+.identity-card {
+  border-color: #ffffffd9;
+  box-shadow: 16px 18px 45px #704b6d35;
+}
+
+.card-glow {
+  background: #dcb5ff;
+}
+
+.chat-panel,
+.about-card,
+.skills-card {
+  border-color: #efdce8;
+  background: #ffffffdc;
+  box-shadow: 0 15px 45px #8d526b12;
+}
+
+.about-card {
+  background: linear-gradient(135deg, #fff8fb, #f5edff);
+}
+
+.message span {
+  background: #eee1ff;
+  color: #8060ae;
+}
+
+.message.user span {
+  background: #f3d7df;
+  color: #9c5a6b;
+}
+
+.message p {
+  background: #f5effa;
+}
+
+.message.user p {
+  background: #fae4e9;
+}
+
+.quick-list button,
+.chat-input {
+  border-color: #ead9e5;
+}
+
+.skill-cloud span {
+  border-color: #e6d6e9;
+  background: #fff;
+}
+
+.skill-cloud span:nth-child(3n),
+.skill-cloud span:nth-child(2n) {
+  background: #f3e9ff;
+}
+
+.skill-group.exploring .skill-cloud span {
+  background: #fdecef;
+  border-color: #f0cfd9;
+}
+
+.contact {
+  background: linear-gradient(112deg, #a78bfa, #d58d8d);
+  box-shadow: 15px 15px 0 #eed7e8;
+}
+
+.contact .eyebrow { color: #fff; }
+.contact input,
+.contact textarea {
+  border-color: #ffffff72;
+  background: #ffffff2b;
+}
+.contact button { background: #fff; color: #7a526c; }
