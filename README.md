@@ -98,13 +98,9 @@ cd ..
 
 Open two terminals in the project root and run one command in each:
 
-```powershell
 npm run dev:backend
-```
 
-```powershell
 npm run dev:frontend
-```
 
 Open the address Vite shows in the terminal, usually [http://localhost:5173](http://localhost:5173).
 
