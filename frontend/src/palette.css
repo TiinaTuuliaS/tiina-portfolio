@@ -21,7 +21,9 @@ main {
   border-radius: 34px;
   grid-template-columns: 1.32fr .68fr;
   gap: 70px;
-  background: linear-gradient(112deg, #d6a0a0 0%, #dfa9a9 48%, #99ab6c 120%);
+  background:
+    radial-gradient(circle at 78% 16%, #fff6ce9e 0%, transparent 29%),
+    linear-gradient(112deg, #d6a0a0 0%, #e0aaa4 36%, #efd7a7 67%, #99ab6c 118%);
   box-shadow: 0 22px 55px #b9808040;
 }
 
@@ -109,11 +111,15 @@ main {
 }
 
 .contact .eyebrow { color: #fff6ce; }
+.contact > div > p:last-child { color: #fffdf9; }
 .contact input,
 .contact textarea {
-  border-color: #fffdf972;
-  background: #fffdf929;
+  border-color: #fffdf9;
+  background: #fffdf9e8;
+  color: #40383d;
 }
+.contact input::placeholder,
+.contact textarea::placeholder { color: #765f64; opacity: 1; }
 .contact button { background: #fff6ce; color: #765358; }
 
 .projects {
