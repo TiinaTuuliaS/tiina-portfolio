@@ -24,6 +24,8 @@
   min-height: 310px;
 }
 
+.chat-panel .quick-list { margin: 12px 0 0; }
+
 @keyframes avatar-drift {
   50% { transform: translateY(-3px) rotate(-3deg); }
 }
