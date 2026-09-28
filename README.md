@@ -133,6 +133,10 @@ Open the address Vite shows in the terminal, usually [http://localhost:5173](htt
 | `POST /api/chat` | Sends a message and conversation history to the CV chatbot |
 | `POST /api/contact` | Sends a contact form message through Resend |
 
+## Public-use limits
+
+To protect the OpenAI and email integrations from accidental or abusive use, the backend applies lightweight per-visitor limits: chat allows 8 messages per 10 minutes and 25 per rolling 24 hours, while the contact form allows 3 messages per hour. The first version stores these counters in the backend process, which is appropriate for this small portfolio. A persistent store such as Redis can be added later if traffic grows.
+
 ## Build for production
 
 Create an optimized frontend build with:

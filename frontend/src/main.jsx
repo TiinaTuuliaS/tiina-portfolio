@@ -7,6 +7,7 @@ import './portrait.css'
 import './skills.css'
 import './palette.css'
 import './cv.css'
+import './chat.css'
 
 const currentPath = window.location.pathname.replace(/\/$/, '')
 

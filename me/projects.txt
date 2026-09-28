@@ -1,0 +1,31 @@
+# Current projects
+
+## Dreamland v2
+GitHub: https://github.com/TiinaTuuliaS/dreamland-v2
+Live demo: https://verkkokauppa-projekti.onrender.com/
+
+Dreamland v2 is a full-stack e-commerce application for a fictional jewellery brand. It includes customer registration and login, category browsing, product pages, a cart, discount coupons, Stripe Checkout, order confirmation emails, and a role-protected admin dashboard with product management and sales analytics.
+
+Core technologies include React, Vite, Node.js, Express, MongoDB, Mongoose, JWT, bcrypt, Stripe, Resend, Cloudinary and Redis.
+
+## AI Market Research Assistant
+GitHub: https://github.com/TiinaTuuliaS/ai_research_assistant
+
+This is a separate application from the CV chatbot. It helps users research an idea's demand, competitors and market changes. Five AI agents create a source-backed report that the user can follow in the interface.
+
+The project uses React, FastAPI, CrewAI, OpenAI GPT-4o mini, Serper, SQLite, SQLAlchemy, Framer Motion and automated tests. CrewAI is used in this project, not in the portfolio CV chatbot.
+
+## Retkeilyapp
+GitHub: https://github.com/TiinaTuuliaS/Retkeilyapp
+
+Retkeilyapp is an active TypeScript project for exploring outdoor destinations and sharing practical observations. It includes account-based profiles, private journals, community sharing, friends, trip planning and offline observation saving.
+
+Offline observations are stored first in IndexedDB and sent later when a connection returns. The app protects account ownership during retries and prevents duplicate submissions. Its backend work includes REST APIs, authentication, PostgreSQL and PostGIS.
+
+## Portfolio
+GitHub: https://github.com/TiinaTuuliaS/tiina-portfolio
+CV page: /cv
+
+This portfolio is itself a full-stack application and one of Tiina's projects. It is designed as an interactive alternative to a traditional CV: visitors can explore skills and selected work, use a Finnish or English AI CV chatbot, read or print a dedicated CV page, download a PDF CV, and send a message through a contact form.
+
+It uses a React and Vite frontend, a Python and FastAPI backend, the OpenAI Responses API for the CV chatbot, and Resend for contact-form email. The design system, responsive interface, project case cards and chatbot experience were built specifically for this portfolio. The CV chatbot uses the OpenAI Responses API directly; it does not use CrewAI.
