@@ -1,16 +1,16 @@
-.message .chat-avatar {
+.message .chat-avatar,
+.typing-avatar {
   display: grid;
   width: 30px;
   height: 30px;
   padding: 0;
   place-items: center;
+  flex: 0 0 auto;
   border-radius: 50%;
   background: #fff6ce;
   box-shadow: 0 4px 10px #aa727233;
-  font-family: inherit;
   font-size: 16px;
   line-height: 1;
-  animation: avatar-drift 2.6s ease-in-out infinite;
 }
 
 .chat-panel {
@@ -26,10 +26,5 @@
 
 .chat-panel .quick-list { margin: 12px 0 0; }
 
-@keyframes avatar-drift {
-  50% { transform: translateY(-3px) rotate(-3deg); }
-}
+.typing-avatar { margin-right: 3px; }
 
-@media (prefers-reduced-motion: reduce) {
-  .message .chat-avatar { animation: none; }
-}
