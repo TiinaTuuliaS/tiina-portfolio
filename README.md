@@ -146,3 +146,55 @@ npm run build
 ```
 
 The build output is created in `frontend/dist/`.
+
+## Deploy on Railway
+
+This repository is ready to deploy as two Railway services. Keeping the React
+site and the FastAPI backend separate means browser users never receive API
+keys, while the portfolio can still use the chat and contact form.
+
+First, push these changes to GitHub. Railway deploys from the repository.
+
+### 1. Backend service
+
+Create a service called `backend` from this repository.
+
+- Leave **Root Directory** empty (the repository root).
+- Add the service variable `RAILWAY_DOCKERFILE_PATH=Dockerfile.backend`.
+- Generate a public domain under **Networking**.
+- Set **Healthcheck Path** to `/health`.
+
+Then add your real values under the backend service's Variables:
+
+```env
+OPENAI_API_KEY=...
+RESEND_API_KEY=...
+RESEND_FROM=...
+CONTACT_TO_EMAIL=...
+FRONTEND_ORIGIN=https://${{frontend.RAILWAY_PUBLIC_DOMAIN}}
+```
+
+`OPENAI_MODEL` is optional; without it the backend uses `gpt-4o-mini`. Do not
+put API keys in GitHub or in frontend variables.
+
+### 2. Frontend service
+
+Create another service called `frontend` from the same repository.
+
+- Set **Root Directory** to `/frontend`.
+- Railway automatically finds `frontend/Dockerfile`.
+- Generate a public domain under **Networking**.
+- Add this Variable:
+
+```env
+VITE_API_URL=https://${{backend.RAILWAY_PUBLIC_DOMAIN}}
+```
+
+`VITE_API_URL` is not a secret: it is the backend's public address. Vite reads
+it while building the site, so changing it requires a frontend redeploy. The
+included Caddy configuration also sends direct routes such as `/cv` back to the
+React app.
+
+After both domains exist, Railway resolves the service references above
+automatically. If you choose different service names, replace `backend` and
+`frontend` in the references with those names.
