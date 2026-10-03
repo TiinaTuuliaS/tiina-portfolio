@@ -21,6 +21,7 @@ main {
   border-radius: 34px;
   grid-template-columns: 1.32fr .68fr;
   gap: 70px;
+  margin-bottom: 28px;
   background:
     radial-gradient(circle at 78% 16%, #fff6ce9e 0%, transparent 29%),
     linear-gradient(112deg, #d6a0a0 0%, #e0aaa4 36%, #efd7a7 67%, #99ab6c 118%);
@@ -107,7 +108,7 @@ main {
 
 .contact {
   background: linear-gradient(112deg, #d6a0a0, #99ab6c);
-  box-shadow: 15px 15px 0 #fff0bd;
+  box-shadow: none;
 }
 
 .contact .eyebrow { color: #fff6ce; }
@@ -282,6 +283,7 @@ main {
     flex-direction: column;
     gap: 26px;
     padding: 34px 21px 23px;
+    margin-bottom: 22px;
     border-radius: 28px;
   }
 
