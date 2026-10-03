@@ -275,8 +275,49 @@ main {
 .project-actions .ghost { border-color: #e8ccc8; color: #825a5d; }
 
 @media (max-width: 800px) {
-  .hero { gap: 38px; }
-  .identity-card { min-height: 260px; }
+  main { padding: 0 14px; }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    padding: 34px 21px 23px;
+    border-radius: 28px;
+  }
+
+  .hero-copy,
+  .identity-card { width: 100%; min-width: 0; }
+
+  .hero h1 {
+    font-size: clamp(40px, 11.5vw, 52px);
+    letter-spacing: -2.8px;
+    margin-bottom: 20px;
+  }
+
+  .hero .intro { font-size: 15px; line-height: 1.58; }
+
+  .hero-actions {
+    flex-wrap: wrap;
+    margin: 24px 0;
+  }
+
+  .button { padding: 11px 16px; }
+
+  .hero .mini-stats {
+    gap: 8px 14px;
+    font-size: 9px;
+    line-height: 1.5;
+  }
+
+  .identity-card {
+    height: 290px;
+    min-height: 0;
+    margin: 0;
+    border-radius: 25px;
+  }
+
+  .portrait-photo { object-position: center 27%; }
+
   .projects { margin-top: 65px; }
   .projects-heading { margin: 0 5px 18px; align-items: start; }
   .projects-heading h2 { text-align: left; }
@@ -284,4 +325,21 @@ main {
   .project-visual { min-height: 285px; }
   .project-ring { width: 170px; height: 170px; right: 24px; bottom: 24px; border-width: 20px; }
   .project-copy { padding: 30px; }
+}
+
+@media (max-width: 420px) {
+  nav { height: 78px; }
+
+  .hero { padding-inline: 18px; }
+
+  .hero-actions { gap: 9px; }
+
+  .hero-actions .button {
+    min-height: 47px;
+    padding-inline: 14px;
+  }
+
+  .chat-panel,
+  .about-card,
+  .skills-card { border-radius: 23px; }
 }

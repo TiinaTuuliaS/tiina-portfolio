@@ -66,12 +66,16 @@
 
 @media (max-width: 760px) {
   .cv-page { padding: 0 16px 32px; }
+  .cv-nav { height: 76px; gap: 18px; }
+  .cv-back { font-size: 12px; }
   .cv-document { padding: 28px 22px; border-radius: 24px; }
   .cv-header, .cv-footer { flex-direction: column; }
   .cv-actions { justify-content: start; }
   .cv-grid { grid-template-columns: 1fr; gap: 0; }
   .timeline-item { grid-template-columns: 1fr; gap: 4px; }
-  .cv-header h1 { letter-spacing: -4px; }
+  .cv-header h1 { font-size: clamp(50px, 16vw, 68px); letter-spacing: -4px; }
+  .cv-actions .button { min-height: 44px; }
+  .cv-footer { gap: 18px; }
 }
 
 @media print {
