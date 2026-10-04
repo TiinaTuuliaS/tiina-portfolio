@@ -1,0 +1,46 @@
+.case-page { position: relative; min-height: 100vh; overflow: hidden; padding: 0 max(5vw, 28px) 36px; background: #fffdf9; }
+.case-orb { position: absolute; z-index: 0; border-radius: 50%; filter: blur(8px); opacity: .52; }
+.case-orb-one { width: 500px; height: 500px; top: -250px; right: -140px; background: #ffdada; }
+.case-orb-two { width: 420px; height: 420px; top: 580px; left: -260px; background: #c0cc92; }
+.case-nav, .case-hero, .case-overview, .case-demo, .case-footer { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; }
+.case-nav { display: flex; align-items: center; justify-content: space-between; height: 90px; }
+.case-hero { display: grid; grid-template-columns: 1.15fr .85fr; gap: 50px; align-items: stretch; padding: 62px 0 78px; }
+.case-hero h1 { margin: 0 0 22px; color: #40383d; font-size: clamp(54px, 8vw, 94px); line-height: .85; letter-spacing: -5px; }
+.case-hero h1 em { color: #aa7272; font-style: normal; }
+.case-hero > div > p:last-child { max-width: 600px; color: #65565c; font-size: clamp(17px, 2vw, 21px); line-height: 1.55; }
+.case-hero-card { display: flex; min-height: 300px; flex-direction: column; justify-content: space-between; padding: 32px; border-radius: 30px; color: #fffdf9; background: linear-gradient(145deg, #d6a0a0, #dcaea7 52%, #99ab6c); box-shadow: 15px 18px 38px #aa727231; }
+.case-hero-card span, .case-hero-card p { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1px; }
+.case-hero-card strong { font-size: clamp(30px, 4vw, 45px); line-height: .95; letter-spacing: -2px; }
+.case-hero-card p { margin: 0; }
+.case-overview { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+.case-story, .case-tech { padding: clamp(28px, 4vw, 48px); border: 1px solid #ecd8d1; border-radius: 29px; background: #fffdf9df; box-shadow: 0 15px 45px #b9808011; }
+.case-story h2, .case-demo-intro h2 { margin: 0 0 18px; color: #40383d; font-size: clamp(31px, 4vw, 49px); line-height: .95; letter-spacing: -2.5px; }
+.case-story p:not(.eyebrow) { color: #695a60; line-height: 1.62; }
+.case-tech { background: linear-gradient(135deg, #fffdf9, #fff3ef); }
+.case-tech ul { display: grid; gap: 17px; padding: 0; margin: 0; list-style: none; }
+.case-tech li { display: grid; gap: 3px; padding-bottom: 15px; border-bottom: 1px solid #efd8d2; }
+.case-tech li:last-child { padding: 0; border: 0; }
+.case-tech strong { color: #55474b; }
+.case-tech span { color: #78686e; font-size: 14px; line-height: 1.5; }
+.case-demo { display: grid; grid-template-columns: .72fr 1.28fr; gap: 40px; align-items: start; margin-top: 88px; padding: 50px; border-radius: 30px; background: #f9f2e7; }
+.case-demo-intro { position: sticky; top: 22px; }
+.case-demo-intro > p:last-child { max-width: 330px; color: #695c61; line-height: 1.58; }
+.case-chat-panel { min-height: 540px; padding: 27px; background: #fffdf9; }
+.case-chat-panel .messages { min-height: 320px; }
+.case-footer { display: flex; justify-content: space-between; gap: 20px; padding: 40px 0 0; color: #76676c; font-family: 'DM Mono', monospace; font-size: 10px; }
+.case-footer a { color: #a56f71; text-decoration: none; }
+
+@media (max-width: 800px) {
+  .case-page { padding: 0 16px 28px; }
+  .case-nav { height: 76px; gap: 18px; }
+  .case-nav .cv-back { font-size: 12px; }
+  .case-hero, .case-overview, .case-demo { grid-template-columns: 1fr; }
+  .case-hero { gap: 26px; padding: 38px 0 52px; }
+  .case-hero h1 { font-size: clamp(49px, 15vw, 70px); letter-spacing: -4px; }
+  .case-hero-card { min-height: 210px; }
+  .case-demo { gap: 28px; margin-top: 48px; padding: 27px 20px; }
+  .case-demo-intro { position: static; }
+  .case-chat-panel { min-height: 0; padding: 21px; }
+  .case-chat-panel .messages { min-height: 270px; }
+  .case-footer { flex-wrap: wrap; padding-top: 28px; }
+}

@@ -275,6 +275,47 @@ main {
 .project-actions .primary { background: #a97373; }
 .project-actions .ghost { border-color: #e8ccc8; color: #825a5d; }
 
+.chatbot-project-card {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  margin-top: 24px;
+  overflow: hidden;
+  border: 1px solid #ecd8d1;
+  border-radius: 30px;
+  background: #fffdf9df;
+  box-shadow: 0 15px 45px #b9808014;
+}
+
+.chatbot-project-visual {
+  position: relative;
+  display: flex;
+  min-height: 310px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px;
+  overflow: hidden;
+  color: #fffdf9;
+  background: linear-gradient(145deg, #99ab6c, #b5bd85 48%, #d6a0a0);
+}
+
+.chatbot-project-visual::after {
+  position: absolute;
+  right: -45px;
+  bottom: -85px;
+  width: 245px;
+  height: 245px;
+  content: '';
+  border: 22px solid #fff8df88;
+  border-radius: 50%;
+}
+
+.chatbot-project-visual span { font-size: 28px; }
+.chatbot-project-visual p { z-index: 1; margin: 0; font-size: clamp(50px, 6vw, 72px); font-weight: 700; line-height: .79; letter-spacing: -4px; }
+.chatbot-project-visual small { z-index: 1; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; }
+.chatbot-project-copy { align-self: center; padding: 42px 48px; }
+.chatbot-project-copy h3 { margin: 0 0 12px; color: #40383d; font-size: clamp(29px, 3.5vw, 43px); letter-spacing: -2.4px; }
+.chatbot-project-copy > p:not(.eyebrow) { max-width: 610px; color: #695a60; line-height: 1.58; }
+
 @media (max-width: 800px) {
   main { padding: 0 14px; }
 
@@ -324,9 +365,12 @@ main {
   .projects-heading { margin: 0 5px 18px; align-items: start; }
   .projects-heading h2 { text-align: left; }
   .project-case { grid-template-columns: 1fr; }
+  .chatbot-project-card { grid-template-columns: 1fr; }
   .project-visual { min-height: 285px; }
+  .chatbot-project-visual { min-height: 240px; }
   .project-ring { width: 170px; height: 170px; right: 24px; bottom: 24px; border-width: 20px; }
   .project-copy { padding: 30px; }
+  .chatbot-project-copy { padding: 30px; }
 }
 
 @media (max-width: 420px) {
