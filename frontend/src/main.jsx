@@ -12,6 +12,7 @@ import './cv.css'
 import './chat.css'
 import './chatbot-case.css'
 import './dreamland-case.css'
+import './emoji.css'
 
 const currentPath = window.location.pathname.replace(/\/$/, '')
 

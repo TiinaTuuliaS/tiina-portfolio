@@ -1,0 +1,6 @@
+/* iOS voi esittää jotkin Unicode-nuolet värillisinä emoji-merkkeinä.
+   Portfoliossa nuolet ovat osa käyttöliittymän typografiaa. */
+a,
+button {
+  font-variant-emoji: text;
+}
