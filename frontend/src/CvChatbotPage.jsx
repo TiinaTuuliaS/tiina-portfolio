@@ -56,7 +56,7 @@ function CvChatbotPage() {
     <nav className="case-nav"><a className="logo" href="/">TS<span>✦</span></a><a className="cv-back" href="/">← Takaisin portfolioon</a></nav>
 
     <section className="case-hero">
-      <div><p className="eyebrow">CASE STUDY / AI-POWERED PORTFOLIO</p><h1>Portfolio<br /><em>&amp; AI CV Chat.</em></h1><p>Rakensin portfolioni tuotteena: se esittelee työni, tekee yhteydenotosta helppoa ja antaa rekrytoijalle mahdollisuuden kysyä kokemuksestani suoraan.</p></div>
+      <div><p className="eyebrow">CASE STUDY / AI-POWERED PORTFOLIO</p><h1>Portfolio<br /><em>&amp; AI CV Chat.</em></h1><p>Rakensin portfolioni tuotteena: se esittelee työni, tekee yhteydenotosta helppoa ja antaa rekrytoijalle mahdollisuuden kysyä kokemuksestani suoraan.</p><div className="case-hero-actions"><a className="button primary" href="https://github.com/TiinaTuuliaS/tiina-portfolio" target="_blank" rel="noreferrer">Katso koodi ↗</a></div></div>
       <div className="case-hero-card"><span>01</span><strong>Conversation<br />as a portfolio.</strong><p>React · FastAPI · OpenAI</p></div>
     </section>
 

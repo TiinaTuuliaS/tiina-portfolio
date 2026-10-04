@@ -8,6 +8,8 @@
 .case-hero h1 { margin: 0 0 22px; color: #40383d; font-size: clamp(54px, 8vw, 94px); line-height: .85; letter-spacing: -5px; }
 .case-hero h1 em { color: #aa7272; font-style: normal; }
 .case-hero > div > p:last-child { max-width: 600px; color: #65565c; font-size: clamp(17px, 2vw, 21px); line-height: 1.55; }
+.case-hero-actions { margin-top: 28px; }
+.case-hero-actions .primary { background: #a97373; }
 .case-hero-card { display: flex; min-height: 300px; flex-direction: column; justify-content: space-between; padding: 32px; border-radius: 30px; color: #fffdf9; background: linear-gradient(145deg, #d6a0a0, #dcaea7 52%, #99ab6c); box-shadow: 15px 18px 38px #aa727231; }
 .case-hero-card span, .case-hero-card p { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1px; }
 .case-hero-card strong { font-size: clamp(30px, 4vw, 45px); line-height: .95; letter-spacing: -2px; }
