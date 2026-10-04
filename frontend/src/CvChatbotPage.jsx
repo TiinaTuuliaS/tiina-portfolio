@@ -3,10 +3,10 @@ import { useEffect, useRef, useState } from 'react'
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
 const quickQuestions = [
-  'Mitä teknologioita käytät?',
-  'Kerro projekteistasi teknisesti',
-  'Miten työskentelet tiimissä?',
-  'Mitä etsit seuraavaksi?',
+  'Miten toteutit tämän CV-chatbotin?',
+  'Mitä teknologioita käytät käytännössä?',
+  'Miten VM-taustasi näkyy kehittäjätyössä?',
+  'Millaisessa roolissa haluaisit työskennellä?',
 ]
 
 function CvChatbotPage() {
