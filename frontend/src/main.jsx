@@ -13,6 +13,8 @@ import './chat.css'
 import './chatbot-case.css'
 import './dreamland-case.css'
 import './emoji.css'
+import './electric-peach.css'
+import './editorial-theme.css'
 
 const currentPath = window.location.pathname.replace(/\/$/, '')
 

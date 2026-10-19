@@ -1,0 +1,236 @@
+:root {
+  --editorial-white: #ffffff;
+  --editorial-pale: #fff5fb;
+  --editorial-pink: #ff9ad5;
+  --editorial-pink-soft: #f8bce0;
+  --editorial-raspberry: #d94c69;
+  --editorial-ink: #161616;
+  --editorial-blue: #477bff;
+  --editorial-lime: #dfff36;
+  --editorial-coral: #ff5157;
+  --editorial-line: #161616;
+  --editorial-muted: #615b5f;
+}
+
+body,
+main,
+.case-page,
+.cv-page,
+.dreamland-case-page {
+  color: var(--editorial-ink);
+  background: var(--editorial-white);
+}
+
+main { padding-inline: max(4vw, 22px); background: var(--editorial-white); }
+.grid { opacity: .38; background-image: linear-gradient(#16161612 1px, transparent 1px), linear-gradient(90deg, #16161612 1px, transparent 1px); background-size: 46px 46px; }
+.orb, .case-orb, .cv-background, .dreamland-orb { filter: none; opacity: 1; border-radius: 0; }
+.orb-one, .case-orb-one, .cv-background-one, .dreamland-orb-one { background: var(--editorial-pink); }
+.orb-two, .case-orb-two, .cv-background-two, .dreamland-orb-two { background: var(--editorial-pink-soft); }
+
+nav, .case-nav, .cv-nav, .dreamland-case-nav {
+  height: 82px;
+  border-bottom: 1px solid var(--editorial-line);
+}
+.logo, .nav-links a, .mobile-cv-link, .cv-back { color: var(--editorial-ink); }
+.logo > span, .eyebrow, .quick-list span, .about-card a, .case-footer a, .cv-footer a { color: var(--editorial-raspberry); }
+.logo { font-size: 29px; }
+.logo > span { font-size: 17px; }
+.nav-links { gap: 0; }
+.nav-links a { padding: 10px 15px; border-left: 1px solid var(--editorial-line); }
+.language { padding: 0; overflow: hidden; border: 1px solid var(--editorial-line); border-radius: 0; background: var(--editorial-white); }
+.language button { padding: 8px 10px; border-radius: 0; }
+.language .active { color: var(--editorial-ink); background: var(--editorial-lime); }
+
+.button,
+.chat-input,
+.chat-input button,
+.quick-list button,
+.contact input,
+.contact textarea,
+.project-stack span,
+.skill-cloud span,
+.cv-tech-list span {
+  border-radius: 0;
+}
+.button { min-height: 42px; border: 1px solid var(--editorial-line); box-shadow: none; }
+.primary, .hero .primary, .project-actions .primary, .case-hero-actions .primary, .dreamland-case-actions .primary, .cv-actions .primary, .chat-input button {
+  color: var(--editorial-white);
+  background: var(--editorial-coral);
+  box-shadow: none;
+}
+.ghost, .hero .ghost, .project-actions .ghost, .dreamland-case-actions .ghost { color: var(--editorial-ink); border-color: var(--editorial-line); background: var(--editorial-white); }
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(290px, .75fr);
+  gap: 0;
+  padding: 0;
+  margin: 30px auto 0;
+  overflow: hidden;
+  border: 1px solid var(--editorial-line);
+  border-radius: 0;
+  background: var(--editorial-white);
+  box-shadow: none;
+}
+.hero-copy { display: flex; min-height: 510px; flex-direction: column; justify-content: center; padding: clamp(34px, 6vw, 82px); }
+.hero .eyebrow, .hero .intro, .hero .mini-stats { color: var(--editorial-ink); }
+.hero h1, .hero h1 em { color: var(--editorial-ink); }
+.hero h1 em { color: var(--editorial-raspberry); }
+.hero .primary { color: var(--editorial-white); background: var(--editorial-coral); }
+.hero .ghost { color: var(--editorial-ink); border-color: var(--editorial-line); background: var(--editorial-white); }
+.identity-card { min-height: 510px; margin: 0; padding: 27px; border: 0; border-left: 1px solid var(--editorial-line); border-radius: 0; background: var(--editorial-pink); box-shadow: none; }
+.card-glow { width: 185px; height: 185px; border-radius: 50%; background: var(--editorial-lime); filter: none; opacity: .72; }
+.portrait-photo { mix-blend-mode: normal; }
+
+.content { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr); align-items: stretch; gap: 28px; margin-top: 30px; border: 0; }
+.chat-panel, .about-card, .skills-card { border: 0; border-radius: 0; background: var(--editorial-white); box-shadow: none; backdrop-filter: none; }
+.chat-column { display: flex; min-width: 0; flex-direction: column; gap: 28px; }
+.content > .chat-column > .chat-panel { padding: clamp(24px, 4vw, 42px); border: 1px solid var(--editorial-line); }
+.content aside { gap: 0; border: 1px solid var(--editorial-line); }
+.about-card, .skills-card { padding: clamp(24px, 3.4vw, 38px); }
+.about-card { border-bottom: 1px solid var(--editorial-line); background: var(--editorial-pale); }
+.about-card a { color: var(--editorial-raspberry); }
+.online i { background: var(--editorial-blue); }
+.message span { border-radius: 0; background: var(--editorial-pink-soft); color: var(--editorial-ink); }
+.message.user span { background: var(--editorial-lime); color: var(--editorial-ink); }
+.message p { border-radius: 0; background: var(--editorial-pale); color: var(--editorial-ink); }
+.message.user p { background: #f4f7ff; }
+.quick-list button, .chat-input { border-color: var(--editorial-line); background: var(--editorial-white); }
+.quick-list button:hover { background: var(--editorial-pale); }
+.chat-input button { border: 1px solid var(--editorial-line); }
+.content > .chat-column .messages { height: 200px; min-height: 200px; }
+.chat-accent {
+  position: relative;
+  isolation: isolate;
+  flex: 1 1 auto;
+  min-height: 150px;
+  overflow: hidden;
+  border: 1px solid var(--editorial-line);
+  background: var(--editorial-pink);
+}
+.chat-accent::before,
+.chat-accent::after { position: absolute; z-index: 0; display: block; content: ''; }
+.chat-accent::before { width: 48%; height: 145%; right: -11%; top: -22%; background: var(--editorial-blue); transform: rotate(12deg); animation: editorial-slide 5s ease-in-out infinite alternate; }
+.chat-accent::after { width: 92px; height: 92px; left: 13%; bottom: -44px; border-radius: 50%; background: var(--editorial-lime); animation: editorial-pulse 4s ease-in-out infinite alternate; }
+.chat-accent > span { position: absolute; z-index: 1; left: clamp(22px, 4vw, 42px); bottom: 22px; color: var(--editorial-ink); font-size: clamp(55px, 8vw, 112px); font-weight: 700; line-height: .7; letter-spacing: -8px; }
+.chat-accent sup { color: var(--editorial-coral); font-size: .25em; vertical-align: top; }
+.chat-accent i { position: absolute; z-index: 1; top: 18px; right: 22px; color: var(--editorial-coral); font-size: 30px; font-style: normal; line-height: 1; animation: editorial-spin 12s linear infinite; }
+@keyframes editorial-slide { to { transform: rotate(16deg) translate(-18px, 16px); } }
+@keyframes editorial-pulse { to { transform: scale(1.18) translate(8px, -8px); } }
+@keyframes editorial-spin { to { transform: rotate(360deg); } }
+.skill-group + .skill-group { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--editorial-line); }
+.skill-cloud span, .project-stack span, .cv-tech-list span { border-color: var(--editorial-line); background: var(--editorial-white); color: var(--editorial-ink); }
+.skill-cloud span:nth-child(3n), .skill-cloud span:nth-child(2n), .project-stack span, .cv-tech-list span:nth-child(3n) { background: var(--editorial-pale); }
+.skill-group.exploring .skill-cloud span, .cv-tech-list span:nth-child(4n) { border-color: var(--editorial-line); background: var(--editorial-lime); }
+
+.projects { margin-top: 84px; }
+.projects-heading { align-items: start; margin: 0 0 22px; }
+.projects-heading h2 { text-align: left; }
+.project-case, .chatbot-project-card { overflow: hidden; border: 1px solid var(--editorial-line); border-radius: 0; background: var(--editorial-white); box-shadow: none; }
+.chatbot-project-card { margin-top: 28px; }
+.project-visual, .chatbot-project-visual { min-height: 410px; border-radius: 0; }
+.project-visual {
+  background:
+    radial-gradient(circle at 78% 19%, var(--editorial-lime) 0 24px, transparent 25px),
+    repeating-linear-gradient(90deg, transparent 0 38px, #d94c6930 38px 39px),
+    linear-gradient(135deg, var(--editorial-pink), var(--editorial-pink-soft));
+}
+.chatbot-project-visual {
+  color: var(--editorial-ink);
+  background:
+    radial-gradient(circle at 76% 20%, var(--editorial-lime) 0 24px, transparent 25px),
+    linear-gradient(90deg, transparent 0 72%, #477bff 72% 100%),
+    linear-gradient(135deg, var(--editorial-pink), var(--editorial-pink-soft));
+}
+.chatbot-project-visual::after { border-color: #ffffffb8; }
+.project-orb-one { background: var(--editorial-lime); filter: none; }
+.project-orb-two { background: var(--editorial-coral); filter: none; }
+.project-ring { border-color: #ffffffa6; box-shadow: none; }
+.project-copy, .chatbot-project-copy { padding: clamp(30px, 5vw, 62px); }
+.project-intro, .project-body, .chatbot-project-copy > p:not(.eyebrow) { color: var(--editorial-muted); }
+
+.contact { gap: 0; padding: 0; margin-top: 84px; margin-bottom: 48px; overflow: hidden; border: 1px solid var(--editorial-line); border-radius: 0; color: var(--editorial-ink); background: var(--editorial-pink-soft); box-shadow: none; }
+.contact > div { padding: clamp(32px, 5vw, 64px); border-right: 1px solid var(--editorial-line); }
+.contact form { padding: clamp(32px, 5vw, 64px); background: var(--editorial-pale); }
+.contact .eyebrow { color: var(--editorial-raspberry); }
+.contact > div > p:last-child { color: var(--editorial-ink); }
+.contact input, .contact textarea { border-color: var(--editorial-line); background: var(--editorial-white); color: var(--editorial-ink); }
+.contact button { color: var(--editorial-white); background: var(--editorial-coral); }
+
+footer { padding-top: 26px; border-top: 1px solid var(--editorial-line); color: var(--editorial-muted); }
+
+/* CV and case-study pages use the same editorial line system. */
+.case-page, .cv-page, .dreamland-case-page { padding-inline: max(4vw, 22px); }
+.case-nav, .cv-nav, .dreamland-case-nav { max-width: 1220px; }
+.case-hero, .dreamland-case-hero { gap: 0; padding: 30px 0 0; border: 1px solid var(--editorial-line); background: var(--editorial-white); }
+.case-hero > div:first-child, .dreamland-case-hero > div:first-child { padding: clamp(32px, 5vw, 66px); }
+.case-hero-card, .dreamland-showcase { min-height: 100%; border-radius: 0; box-shadow: none; }
+.case-hero-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: var(--editorial-ink);
+  background:
+    linear-gradient(90deg, transparent 0 68%, var(--editorial-blue) 68% 100%),
+    linear-gradient(135deg, var(--editorial-pink), var(--editorial-pink-soft));
+}
+.case-hero-card::before,
+.case-hero-card::after { position: absolute; z-index: 0; display: block; content: ''; }
+.case-hero-card::before { width: 76px; height: 76px; right: 29%; bottom: -32px; border-radius: 50%; background: var(--editorial-lime); }
+.case-hero-card::after { top: 32px; right: 32px; width: 34px; height: 34px; border: 1px solid var(--editorial-white); }
+.case-hero-card > * { position: relative; z-index: 1; }
+.dreamland-showcase {
+  isolation: isolate;
+  color: var(--editorial-ink);
+  background: linear-gradient(135deg, var(--editorial-pink), var(--editorial-pink-soft));
+}
+.dreamland-showcase::before,
+.dreamland-showcase::after { position: absolute; z-index: 0; display: block; content: ''; }
+.dreamland-showcase::before { top: 0; right: 0; width: 31%; height: 34%; background: var(--editorial-blue); }
+.dreamland-showcase::after { right: 15%; bottom: 16%; width: 28px; height: 28px; border-radius: 50%; background: var(--editorial-lime); }
+.dreamland-showcase > span, .dreamland-showcase p, .dreamland-showcase small { z-index: 2; }
+.dreamland-showcase p { max-width: 100%; font-size: clamp(42px, 5vw, 64px); letter-spacing: -4px; word-break: normal; }
+.dreamland-showcase i { z-index: 1; border-color: #ffffffc9; }
+.dreamland-showcase b { z-index: 1; border-color: var(--editorial-lime); }
+.case-overview, .dreamland-story, .dreamland-build, .dreamland-gallery { gap: 0; margin-top: 30px; border: 1px solid var(--editorial-line); }
+.case-story, .case-tech, .dreamland-story, .dreamland-build li, .dreamland-snapshots figure, .cv-document { border: 0; border-radius: 0; background: var(--editorial-white); box-shadow: none; }
+.case-tech, .dreamland-story-copy, .dreamland-build ul { border-left: 1px solid var(--editorial-line); }
+.case-tech { background: var(--editorial-pale); }
+.case-demo { gap: 0; padding: 0; border: 1px solid var(--editorial-line); border-radius: 0; background: var(--editorial-pink-soft); }
+.case-demo-intro { padding: clamp(30px, 5vw, 54px); }
+.case-chat-panel { min-height: 0; padding: 22px; border-left: 1px solid var(--editorial-line); background: var(--editorial-white); }
+.case-chat-panel .messages { height: 190px; min-height: 0; }
+.case-chat-panel .quick-list { margin-bottom: 0; }
+.case-chat-panel .quick-list button { padding-block: 7px; }
+.dreamland-build { grid-template-columns: .82fr 1.18fr; align-items: stretch; }
+.dreamland-build-heading, .dreamland-gallery-heading { padding: clamp(30px, 5vw, 54px); }
+.dreamland-build ul { padding: 20px; }
+.dreamland-build li + li { border-top: 1px solid var(--editorial-line); }
+.dreamland-gallery { display: grid; grid-template-columns: .7fr 1.3fr; }
+.dreamland-snapshots { margin: 0; padding: 20px; border-left: 1px solid var(--editorial-line); }
+.dreamland-snapshots figure { border: 1px solid var(--editorial-line); }
+.cv-document { border: 1px solid var(--editorial-line); }
+.cv-header, .cv-section, .cv-footer { border-color: var(--editorial-line); }
+.cv-tech-list span { border-radius: 0; }
+
+@media (max-width: 800px) {
+  main, .case-page, .cv-page, .dreamland-case-page { padding-inline: 14px; }
+  nav, .case-nav, .cv-nav, .dreamland-case-nav { height: 72px; }
+  .hero { grid-template-columns: 1fr; margin-top: 18px; }
+  .hero-copy { min-height: 0; padding: 32px 23px 38px; }
+  .identity-card { min-height: 320px; border-top: 1px solid var(--editorial-line); border-left: 0; }
+  .content { grid-template-columns: 1fr; gap: 18px; margin-top: 18px; }
+  .content aside { border: 1px solid var(--editorial-line); }
+  .content > .chat-column .messages { height: 260px; min-height: 260px; }
+  .chat-accent { min-height: 150px; }
+  .projects { margin-top: 58px; }
+  .project-case, .chatbot-project-card { grid-template-columns: 1fr; }
+  .project-visual, .chatbot-project-visual { min-height: 250px; }
+  .contact { grid-template-columns: 1fr; margin-top: 58px; }
+  .contact > div { border-right: 0; border-bottom: 1px solid var(--editorial-line); }
+  .case-hero, .dreamland-case-hero, .case-overview, .dreamland-story, .dreamland-build, .dreamland-gallery { grid-template-columns: 1fr; }
+  .case-hero-card, .dreamland-showcase, .case-tech, .dreamland-story-copy, .dreamland-build ul, .case-chat-panel, .dreamland-snapshots { border-top: 1px solid var(--editorial-line); border-left: 0; }
+  .case-hero-card, .dreamland-showcase { min-height: 220px; }
+  .case-demo { grid-template-columns: 1fr; }
+  .dreamland-snapshots { padding: 14px; }
+}
