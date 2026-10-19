@@ -35,6 +35,8 @@ nav, .case-nav, .cv-nav, .dreamland-case-nav {
 .logo > span, .eyebrow, .quick-list span, .about-card a, .case-footer a, .cv-footer a { color: var(--editorial-raspberry); }
 .logo { font-size: 29px; }
 .logo > span { font-size: 17px; }
+.arrow-icon { display: inline-block; width: .95em; height: .95em; flex: 0 0 auto; vertical-align: -.12em; }
+.button .arrow-icon, .quick-list .arrow-icon { margin-left: 2px; }
 .nav-links { gap: 0; }
 .nav-links a { padding: 10px 15px; border-left: 1px solid var(--editorial-line); }
 .language { padding: 0; overflow: hidden; border: 1px solid var(--editorial-line); border-radius: 0; background: var(--editorial-white); }

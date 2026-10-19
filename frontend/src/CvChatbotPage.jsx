@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { ArrowIcon } from './icons'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
@@ -53,10 +54,10 @@ function CvChatbotPage() {
 
   return <main className="case-page">
     <div className="case-orb case-orb-one" /><div className="case-orb case-orb-two" />
-    <nav className="case-nav"><a className="logo" href="/">TS<span>✦</span></a><a className="cv-back" href="/">← Takaisin portfolioon</a></nav>
+    <nav className="case-nav"><a className="logo" href="/">TS<span>✦</span></a><a className="cv-back" href="/"><ArrowIcon direction="left" /> Takaisin portfolioon</a></nav>
 
     <section className="case-hero">
-      <div><p className="eyebrow">CASE STUDY / AI-POWERED PORTFOLIO</p><h1>Portfolio<br /><em>&amp; AI CV Chat.</em></h1><p>Rakensin portfolioni tuotteena: se esittelee työni, tekee yhteydenotosta helppoa ja antaa rekrytoijalle mahdollisuuden kysyä kokemuksestani suoraan.</p><div className="case-hero-actions"><a className="button primary" href="https://github.com/TiinaTuuliaS/tiina-portfolio" target="_blank" rel="noreferrer">Katso koodi ↗</a></div></div>
+      <div><p className="eyebrow">CASE STUDY / AI-POWERED PORTFOLIO</p><h1>Portfolio<br /><em>&amp; AI CV Chat.</em></h1><p>Rakensin portfolioni tuotteena: se esittelee työni, tekee yhteydenotosta helppoa ja antaa rekrytoijalle mahdollisuuden kysyä kokemuksestani suoraan.</p><div className="case-hero-actions"><a className="button primary" href="https://github.com/TiinaTuuliaS/tiina-portfolio" target="_blank" rel="noreferrer">Katso koodi <ArrowIcon /></a></div></div>
       <div className="case-hero-card"><span>01</span><strong>Conversation<br />as a portfolio.</strong><p>React · FastAPI · OpenAI</p></div>
     </section>
 
@@ -67,10 +68,10 @@ function CvChatbotPage() {
 
     <section className="case-demo" aria-labelledby="live-demo-title">
       <div className="case-demo-intro"><p className="eyebrow">LIVE DEMO</p><h2 id="live-demo-title">Kokeile chattia.</h2><p>Demo käyttää samaa tuotannossa olevaa APIa kuin etusivun CV-chat. Kysymyksiä on suojattu kevyillä käyttörajoilla.</p></div>
-      <div className="chat-panel case-chat-panel"><div className="panel-head"><div><p className="eyebrow small">TIINA'S CV CHAT</p><h2>Kysy minulta mitä vain</h2></div><span className="online"><i /> ONLINE</span></div><p className="subtitle">Vastaan Tiinana CV- ja projektikontekstin pohjalta.</p><div className="messages" ref={messagesRef}>{messages.map((message, index) => <div key={`${message.role}-${index}`} className={`message ${message.role}`}>{message.role === 'assistant' ? <span className="chat-avatar" role="img" aria-label="Tiina kirjoittaa">👩‍💻</span> : <span>YOU</span>}<p>{message.content}</p></div>)}{loading && <div className="typing"><span className="typing-avatar" role="img" aria-label="Tiina kirjoittaa">👩‍💻</span><i /><i /><i /></div>}</div><form className="chat-input" onSubmit={(event) => { event.preventDefault(); sendMessage() }}><input value={question} onChange={(event) => setQuestion(event.target.value)} placeholder="Kirjoita kysymys..." maxLength="4000"/><button disabled={loading}>Lähetä <span>↑</span></button></form><div className="quick-list">{quickQuestions.map((item) => <button key={item} onClick={() => sendMessage(item)}>{item}<span>↗</span></button>)}</div></div>
+      <div className="chat-panel case-chat-panel"><div className="panel-head"><div><p className="eyebrow small">TIINA'S CV CHAT</p><h2>Kysy minulta mitä vain</h2></div><span className="online"><i /> ONLINE</span></div><p className="subtitle">Vastaan Tiinana CV- ja projektikontekstin pohjalta.</p><div className="messages" ref={messagesRef}>{messages.map((message, index) => <div key={`${message.role}-${index}`} className={`message ${message.role}`}>{message.role === 'assistant' ? <span className="chat-avatar" role="img" aria-label="Tiina kirjoittaa">👩‍💻</span> : <span>YOU</span>}<p>{message.content}</p></div>)}{loading && <div className="typing"><span className="typing-avatar" role="img" aria-label="Tiina kirjoittaa">👩‍💻</span><i /><i /><i /></div>}</div><form className="chat-input" onSubmit={(event) => { event.preventDefault(); sendMessage() }}><input value={question} onChange={(event) => setQuestion(event.target.value)} placeholder="Kirjoita kysymys..." maxLength="4000"/><button disabled={loading}>Lähetä <ArrowIcon direction="up" /></button></form><div className="quick-list">{quickQuestions.map((item) => <button key={item} onClick={() => sendMessage(item)}>{item}<ArrowIcon /></button>)}</div></div>
     </section>
 
-    <footer className="case-footer"><span>TIINA SIREMAA / 2026</span><a href="/">Takaisin portfolioon ↗</a></footer>
+    <footer className="case-footer"><span>TIINA SIREMAA / 2026</span><a href="/">Takaisin portfolioon <ArrowIcon /></a></footer>
   </main>
 }
 
