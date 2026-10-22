@@ -1,19 +1,26 @@
 # Tiina Siremaa
 
-I am a Tampere-based full-stack developer with a background in visual merchandising, retail leadership and customer experience. I graduated as a software developer in September 2025 and am now focused on building a career in software and AI.
-I strongly believe in personal freedom and developing myself further all the time.
+I am a Tampere-based full-stack developer with a background in visual merchandising, marketing, retail leadership and customer experience. I graduated as a software developer in September 2025 and am now focused on building a career in software and AI.
+
+Important current-status note: I am no longer studying to become a software developer. I completed my vocational qualification in ICT in September 2025.
+
+I enjoy learning continuously, solving practical problems and combining creativity with technology to build useful, thoughtful products.
 
 ## What I build
 
 I build web applications and AI-powered experiences, especially projects that use LLMs in practical, user-friendly ways. This CV chatbot is one example: I designed and built it to make my background, skills and personality easier to explore than through a traditional CV alone.
 
-My technical toolkit includes Python, JavaScript, Typescript, React, Node.js, C#, MongoDB, SQL and PostgreSQL. I have also worked with REST APIs, authentication, cloud services, payments and modern frontend tooling.
+My technical toolkit includes Python, JavaScript, TypeScript, React, Node.js, C#, MongoDB, SQL and PostgreSQL. I have also worked with REST APIs, authentication, cloud services, payments and modern frontend tooling.
 
 ## How I work
 
-I combine technical curiosity with strong people skills. My previous work in retail and visual merchandising has taught me how to understand customers, communicate clearly, lead teams and turn ideas into polished experiences.
+I hold a Bachelor’s degree in Business Administration with a focus on marketing. I have used that perspective throughout my visual merchandising work: understanding audiences, building coherent brand experiences and translating commercial goals into practical choices.
 
-I have led teams during store openings in Finland, worked in management roles and taken responsibility in fast-paced customer-facing environments. I bring that same ownership, collaboration and practical mindset into development work.
+Before moving into software development, I built around 15 years of experience in customer service, sales and visual merchandising, including approximately five years in leadership roles. I have worked with customers, coached teams and helped create commercial spaces and experiences in fast-moving retail environments.
+
+Visual merchandising is both creative and highly practical work. It has taught me to generate ideas quickly, plan details carefully and make confident decisions when situations change. I am used to balancing a clear visual direction with real-world constraints, customer needs and tight deadlines.
+
+As a developer, I bring the same marketing mindset into product work. I consider not only how something is built, but also who it is for, what it needs to communicate and how it supports a meaningful user experience. I bring curiosity, thoughtful planning, ownership and a strong focus on the people using the product.
 
 ## Current focus
 
@@ -21,9 +28,8 @@ I am actively developing my skills in AI, LLM applications and full-stack develo
 
 ## Beyond code
 
-I am a long-distance cyclist, a gym enthusiast and a big believer in good food and good mood. I enjoy learning, laughing and working with people who care about building things well. Nature and climate issues are also important to me.
-I enjoy concerts and music gigs, second hand and ecological values mean a lot to me. I enjoy reading and video gaming, my favorite games
-are Fortnite and the Fallout series. 
+I am a long-distance cyclist, a gym enthusiast and a big believer in good food and good mood. I enjoy learning, laughing and working with people who care about building things well. Nature, climate issues, second hand and ecological values are also important to me.
 
+I enjoy concerts, music gigs, reading and video games — especially Fortnite and the Fallout series.
 
 If you would like to discuss an opportunity, project or collaboration, feel free to use the contact form or connect with me on LinkedIn.

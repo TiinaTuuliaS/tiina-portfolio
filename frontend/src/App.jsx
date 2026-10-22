@@ -23,7 +23,7 @@ const copy = {
     send: 'Lähetä',
     quick: ['Miten toteutit tämän CV-chatbotin?', 'Mitä teknologioita käytät käytännössä?', 'Miten VM-taustasi näkyy kehittäjätyössä?', 'Millaisessa roolissa haluaisit työskennellä?'],
     skills: 'Tech universe', projects: 'Valittuja projekteja', projectLabel: 'FEATURED CASE / FULL-STACK E-COMMERCE', projectTitle: 'Dreamland v2', projectIntro: 'Korubrändille rakennettu täyden palvelun verkkokauppa — tuotteen löytämisestä maksun vahvistukseen.', projectBody: 'Rakensin kirjautumisen, kategoriat, ostoskorin, alennuskoodit, Stripe-maksuvirran, tilausviestit sekä roolipohjaisen hallintanäkymän tuotteiden ja myynnin hallintaan.', liveDemo: 'Avaa live-demo', viewCode: 'Katso koodi',
-    contact: 'Ota yhteyttä', contactText: 'Keskustellaan mahdollisuuksista, projekteista tai hyvästä pizzasta.',
+    contact: 'Ota yhteyttä', contactText: 'Keskustellaan mahdollisuuksista, projekteista ja yhteistyöstä.',
     name: 'Nimesi', email: 'Sähköpostisi', note: 'Mistä haluaisit keskustella?', sending: 'Lähetetään...', sent: 'Kiitos! Viestisi on matkalla Tiinalle ✦', error: 'Viestin lähetys ei onnistunut. Yritä hetken kuluttua uudelleen.', contactRateLimited: 'Viestiraja on hetkeksi täynnä. Kokeile uudelleen myöhemmin.',
     starter: 'Moi! Olen Tiina. Kysy minulta vaikka osaamisestani, projekteistani tai siitä, millainen tiimikaveri olen.',
     unavailable: 'Chatti ei ole juuri nyt saatavilla. Kokeile myöhemmin uudelleen.', rateLimited: 'Olet lähettänyt monta kysymystä lyhyessä ajassa. Kokeile hetken kuluttua uudelleen.'
@@ -35,7 +35,7 @@ const copy = {
     chatTitle: 'Ask me anything', chatSubtitle: 'CV chatbot · speaking as Tiina', placeholder: 'Type your question...', send: 'Send',
     quick: ['How did you build this CV chatbot?', 'Which technologies do you use in practice?', 'How does your VM background inform your development work?', 'What kind of role are you looking for?'],
     skills: 'Tech universe', projects: 'Selected work', projectLabel: 'FEATURED CASE / FULL-STACK E-COMMERCE', projectTitle: 'Dreamland v2', projectIntro: 'A full-stack jewellery store for a fictional brand — from product discovery to payment confirmation.', projectBody: 'Built customer authentication, category browsing, cart flows, discount coupons, Stripe Checkout, transactional emails and a role-protected admin dashboard for products and sales analytics.', liveDemo: 'Open live demo', viewCode: 'View code',
-    contact: 'Get in touch', contactText: 'Let’s talk opportunities, projects or great pizza.',
+    contact: 'Get in touch', contactText: 'Let’s talk opportunities, projects and collaboration.',
     name: 'Your name', email: 'Your email', note: 'What would you like to talk about?', sending: 'Sending...', sent: 'Thank you! Your message is on its way to Tiina ✦', error: 'Sending failed. Please try again shortly.', contactRateLimited: 'The message limit has been reached for now. Please try again later.',
     starter: 'Hi! I’m Tiina. Ask me about my skills, projects or what I’m like as a teammate.', unavailable: 'Chat is unavailable right now. Please try again soon.', rateLimited: 'You have sent several questions in a short time. Please try again shortly.'
   }
