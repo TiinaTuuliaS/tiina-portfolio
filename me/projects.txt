@@ -10,10 +10,13 @@ Core technologies include React, Vite, Node.js, Express, MongoDB, Mongoose, JWT,
 
 ## AI Market Research Assistant
 GitHub: https://github.com/TiinaTuuliaS/ai_research_assistant
+Live demo: https://airesearchassistant-production-967c.up.railway.app/
 
-This is a separate application from the CV chatbot. It helps users research an idea's demand, competitors and market changes. Five AI agents create a source-backed report that the user can follow in the interface.
+This is a separate experimental application from the CV chatbot. Three AI agents produce source-backed competitor comparisons and market overviews. The work emphasises source traceability, structured data flow and evaluation of system reliability.
 
-The project uses React, FastAPI, CrewAI, OpenAI GPT-4o mini, Serper, SQLite, SQLAlchemy, Framer Motion and automated tests. CrewAI is used in this project, not in the portfolio CV chatbot.
+The app uses React, React Router, Framer Motion, FastAPI, CrewAI, OpenAI GPT-4.1-mini and GPT-4.1, Serper, Pydantic, SQLite, SQLAlchemy, Docker, Railway, uv, npm and automated tests. Pydantic models validate the structure of findings, source references and analysis; they do not guarantee that claims are true.
+
+Two real example reports are publicly readable. Creating new research is limited to invited testers with an invite code, which keeps experimental API costs manageable. CrewAI is used in this project, not in the portfolio CV chatbot.
 
 ## Retkeilyapp
 GitHub: https://github.com/TiinaTuuliaS/Retkeilyapp

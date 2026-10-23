@@ -128,8 +128,8 @@ nav, .case-nav, .cv-nav, .dreamland-case-nav {
 .projects { margin-top: 84px; }
 .projects-heading { align-items: start; margin: 0 0 22px; }
 .projects-heading h2 { text-align: left; }
-.project-case, .chatbot-project-card { overflow: hidden; border: 1px solid var(--editorial-line); border-radius: 0; background: var(--editorial-white); box-shadow: none; }
-.chatbot-project-card { margin-top: 28px; }
+.project-case, .chatbot-project-card, .research-project-card { overflow: hidden; border: 1px solid var(--editorial-line); border-radius: 0; background: var(--editorial-white); box-shadow: none; }
+.chatbot-project-card, .research-project-card { margin-top: 28px; }
 .project-visual, .chatbot-project-visual { min-height: 410px; border-radius: 0; }
 .project-visual {
   background:
@@ -145,6 +145,22 @@ nav, .case-nav, .cv-nav, .dreamland-case-nav {
     linear-gradient(135deg, var(--editorial-pink), var(--editorial-pink-soft));
 }
 .chatbot-project-visual::after { border-color: #ffffffb8; }
+.project-visual, .chatbot-project-visual { display: flex; align-items: center; padding: 31px; }
+.project-visual { background: var(--editorial-pink-soft); }
+.chatbot-project-visual { background: var(--editorial-blue); }
+.project-visual::before, .chatbot-project-visual::before { position: relative; z-index: 1; display: block; width: 100%; height: 205px; content: ''; border: 1px solid var(--editorial-ink); background-position: top left; background-size: cover; }
+.project-visual::before { background-image: url('/dreamland-v2-preview.png'); }
+.chatbot-project-visual::before { background-image: url('/cv-chat-preview.png'); }
+.project-visual::after, .chatbot-project-visual::after { position: absolute; top: 0; right: 0; bottom: auto; left: 0; width: auto; height: 13px; content: ''; border: 0; border-radius: 0; background: var(--editorial-coral); }
+.project-visual > p, .project-visual .project-star, .project-visual .project-orb, .project-visual .project-ring, .chatbot-project-visual > p, .chatbot-project-visual > span { display: none; }
+.project-visual > span, .chatbot-project-visual > small { position: absolute; z-index: 2; top: 22px; bottom: auto; left: 31px; padding: 6px 8px; color: var(--editorial-ink); background: var(--editorial-lime); font-family: 'DM Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: .7px; }
+.research-project-card { display: grid; grid-template-columns: .85fr 1.15fr; }
+.research-project-visual { position: relative; display: flex; min-height: 310px; align-items: center; padding: 31px; overflow: hidden; background: var(--editorial-blue); }
+.research-project-visual::before { position: absolute; right: -43px; bottom: -43px; width: 185px; height: 185px; content: ''; border: 26px solid var(--editorial-lime); border-radius: 50%; }
+.research-project-visual img { position: relative; z-index: 1; display: block; width: 100%; height: 205px; border: 1px solid var(--editorial-ink); object-fit: cover; object-position: left top; }
+.research-project-visual::after { position: absolute; top: 0; left: 0; width: 100%; height: 13px; content: ''; background: var(--editorial-pink); }
+.research-project-visual span { position: absolute; z-index: 2; top: 22px; left: 31px; padding: 6px 8px; color: var(--editorial-ink); background: var(--editorial-lime); font-family: 'DM Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: .7px; }
+.research-project-copy { align-self: center; padding: clamp(30px, 5vw, 62px); }.research-project-copy h3 { margin: 0 0 12px; font-size: clamp(29px, 3.5vw, 43px); letter-spacing: -2.4px; }.research-project-copy > p:not(.eyebrow) { max-width: 610px; color: var(--editorial-muted); line-height: 1.58; }.research-project-copy .research-demo-note { padding-left: 13px; border-left: 3px solid var(--editorial-lime); font-size: 14px; }
 .project-orb-one { background: var(--editorial-lime); filter: none; }
 .project-orb-two { background: var(--editorial-coral); filter: none; }
 .project-ring { border-color: #ffffffa6; box-shadow: none; }
@@ -226,8 +242,9 @@ footer { padding-top: 26px; border-top: 1px solid var(--editorial-line); color: 
   .content > .chat-column .messages { height: 260px; min-height: 260px; }
   .chat-accent { min-height: 150px; }
   .projects { margin-top: 58px; }
-  .project-case, .chatbot-project-card { grid-template-columns: 1fr; }
-  .project-visual, .chatbot-project-visual { min-height: 250px; }
+  .project-case, .chatbot-project-card, .research-project-card { grid-template-columns: 1fr; }
+  .project-visual, .chatbot-project-visual, .research-project-visual { min-height: 250px; }
+  .research-project-copy { padding: 30px; }
   .contact { grid-template-columns: 1fr; margin-top: 58px; }
   .contact > div { border-right: 0; border-bottom: 1px solid var(--editorial-line); }
   .case-hero, .dreamland-case-hero, .case-overview, .dreamland-story, .dreamland-build, .dreamland-gallery { grid-template-columns: 1fr; }
