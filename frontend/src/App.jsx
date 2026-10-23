@@ -4,16 +4,17 @@ import { ArrowIcon } from './icons'
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
 const skillGroups = [
-  { title: 'Full-stack web development', skills: ['React', 'JavaScript', 'Node.js', 'Express', 'Python', 'FastAPI'] },
-  { title: 'Databases & backend', skills: ['MongoDB', 'Mongoose', 'REST APIs', 'Authentication'] },
-  { title: 'AI development', skills: ['OpenAI API', 'LLM applications', 'CrewAI', 'AI agents'] },
-  { title: 'Tools & integrations', skills: ['Git', 'GitHub', 'Stripe', 'Resend', 'Cloudinary', 'Redis', 'Render'] },
+  { title: 'Full-stack web development', skills: ['React', 'JavaScript', 'React Router', 'Framer Motion', 'Node.js', 'Express', 'Python', 'FastAPI'] },
+  { title: 'Databases & backend', skills: ['MongoDB', 'Mongoose', 'SQLite', 'SQLAlchemy', 'REST APIs', 'Authentication'] },
+  { title: 'AI development', skills: ['OpenAI API', 'GPT-4.1', 'LLM applications', 'CrewAI', 'AI agents', 'Serper', 'Pydantic'] },
+  { title: 'Tools & integrations', skills: ['Git', 'GitHub', 'Docker', 'Railway', 'Stripe', 'Resend', 'Cloudinary', 'Redis'] },
+  { title: 'Testing & quality', skills: ['unittest', 'Jest', 'React Testing Library', 'Structured validation'] },
   { title: 'Currently exploring', skills: ['TypeScript', 'NestJS', 'PostgreSQL', 'PostGIS'], exploring: true },
 ]
 
 const copy = {
   fi: {
-    nav: ['Minusta', 'Osaaminen', 'Projektit', 'CV', 'Ota yhteyttä'],
+    nav: ['Minusta', 'Osaaminen', 'Projektit', 'Visual work', 'CV', 'Ota yhteyttä'],
     eyebrow: 'OPEN TO WORK · AI & FULL-STACK',
     title: <>Hei, olen <em>Tiina.</em><br />Rakennan asioita,<br />jotka tuntuvat tulevaisuudelta.</>,
     intro: 'Visual merchandiserista full-stack-kehittäjäksi. Rakennan nyt LLM-sovelluksia ja etsin seuraavaa mahdollisuuttani teknologiassa.',
@@ -29,7 +30,7 @@ const copy = {
     unavailable: 'Chatti ei ole juuri nyt saatavilla. Kokeile myöhemmin uudelleen.', rateLimited: 'Olet lähettänyt monta kysymystä lyhyessä ajassa. Kokeile hetken kuluttua uudelleen.'
   },
   en: {
-    nav: ['About', 'Skills', 'Projects', 'CV', 'Contact'], eyebrow: 'OPEN TO WORK · AI & FULL-STACK',
+    nav: ['About', 'Skills', 'Projects', 'Visual work', 'CV', 'Contact'], eyebrow: 'OPEN TO WORK · AI & FULL-STACK',
     title: <>Hi, I’m <em>Tiina.</em><br />I build things<br />that feel like the future.</>,
     intro: 'From visual merchandiser to full-stack developer. I now build LLM apps and am looking for my next opportunity in tech.',
     chatTitle: 'Ask me anything', chatSubtitle: 'CV chatbot · speaking as Tiina', placeholder: 'Type your question...', send: 'Send',
@@ -93,7 +94,7 @@ function App() {
 
   return <main>
     <div className="orb orb-one" /><div className="orb orb-two" /><div className="grid" />
-    <nav><a className="logo" href="#top">TS<span>✦</span></a><div className="nav-links">{t.nav.map((item, i) => <a href={['#about','#skills','#projects','/cv','#contact'][i]} key={item}>{item}</a>)}</div><a className="mobile-cv-link" href="/cv">CV <ArrowIcon /></a><div className="language"><button className={language === 'fi' ? 'active' : ''} onClick={() => changeLanguage('fi')}>FI</button><button className={language === 'en' ? 'active' : ''} onClick={() => changeLanguage('en')}>EN</button></div></nav>
+    <nav><a className="logo" href="#top">TS<span>✦</span></a><div className="nav-links">{t.nav.map((item, i) => <a href={['#about','#skills','#projects','/visual-work','/cv','#contact'][i]} key={item}>{item}</a>)}</div><div className="mobile-links"><a href="/visual-work">Visual work <ArrowIcon /></a><a href="/cv">CV <ArrowIcon /></a></div><div className="language"><button className={language === 'fi' ? 'active' : ''} onClick={() => changeLanguage('fi')}>FI</button><button className={language === 'en' ? 'active' : ''} onClick={() => changeLanguage('en')}>EN</button></div></nav>
     <section className="hero" id="top"><div className="hero-copy"><p className="eyebrow">{t.eyebrow}</p><h1>{t.title}</h1><p className="intro">{t.intro}</p><div className="hero-actions"><a className="button primary" href="#contact">{t.contact} <ArrowIcon /></a><a className="button ghost" href="https://github.com/TiinaTuuliaS" target="_blank" rel="noreferrer">GitHub <ArrowIcon /></a><a className="button ghost" href="https://www.linkedin.com/in/tiina-siremaa-7589a61b5/" target="_blank" rel="noreferrer">LinkedIn <ArrowIcon /></a></div><div className="mini-stats"><span>✦ Tampere, Finland</span><span>◌ Available for opportunities</span></div></div><div className="identity-card"><img className="portrait-photo" src="/tiina-portrait-2026.jpeg" alt="Tiina Siremaa"/><div className="card-glow"/><p>TIINA SIREMAA</p><div className="card-bottom"><span>DEVELOPER<br/>+ CREATIVE</span><span>2026<br/>PORTFOLIO</span></div></div></section>
     <section className="content" id="about"><div className="chat-column"><div className="chat-panel"><div className="panel-head"><div><p className="eyebrow small">AI POWERED</p><h2>{t.chatTitle}</h2></div><span className="online"><i/> ONLINE</span></div><p className="subtitle">{t.chatSubtitle}</p><div className="messages" ref={messagesRef}>{messages.map((message, index) => <div key={`${message.role}-${index}`} className={`message ${message.role}`}>{message.role === 'assistant' ? <span className="chat-avatar" role="img" aria-label="Tiina kirjoittaa">👩‍💻</span> : <span>YOU</span>}<p>{message.content}</p></div>)}{loading && <div className="typing"><span className="typing-avatar" role="img" aria-label="Tiina kirjoittaa">👩‍💻</span><i/><i/><i/></div>}</div><form className="chat-input" onSubmit={(event) => { event.preventDefault(); sendMessage() }}><input value={question} onChange={(e) => setQuestion(e.target.value)} placeholder={t.placeholder} maxLength="4000"/><button disabled={loading}>{t.send} <ArrowIcon direction="up" /></button></form><div className="quick-list">{t.quick.map((item) => <button key={item} onClick={() => sendMessage(item)}>{item}<ArrowIcon /></button>)}</div></div><div className="chat-accent" aria-hidden="true"><span>TS<sup>✦</sup></span><i>✦</i></div></div>
       <aside><section className="about-card"><p className="eyebrow small">01 / ABOUT</p><h2>Human-centred<br/>by nature.</h2><p>Developer, team player, cycling enthusiast and lifelong learner.</p><a href="https://github.com/TiinaTuuliaS" target="_blank" rel="noreferrer">GitHub profile <ArrowIcon /></a></section><section className="skills-card" id="skills"><p className="eyebrow small">02 / {t.skills}</p><div className="skills-groups">{skillGroups.map((group) => <div className={`skill-group${group.exploring ? ' exploring' : ''}`} key={group.title}><h3>{group.title}</h3><div className="skill-cloud">{group.skills.map((skill) => <span key={skill}>{skill}</span>)}</div></div>)}</div></section></aside></section>

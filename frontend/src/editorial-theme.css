@@ -31,7 +31,7 @@ nav, .case-nav, .cv-nav, .dreamland-case-nav {
   height: 82px;
   border-bottom: 1px solid var(--editorial-line);
 }
-.logo, .nav-links a, .mobile-cv-link, .cv-back { color: var(--editorial-ink); }
+.logo, .nav-links a, .mobile-cv-link, .mobile-links a, .cv-back { color: var(--editorial-ink); }
 .logo > span, .eyebrow, .quick-list span, .about-card a, .case-footer a, .cv-footer a { color: var(--editorial-raspberry); }
 .logo { font-size: 29px; }
 .logo > span { font-size: 17px; }
@@ -39,6 +39,7 @@ nav, .case-nav, .cv-nav, .dreamland-case-nav {
 .button .arrow-icon, .quick-list .arrow-icon { margin-left: 2px; }
 .nav-links { gap: 0; }
 .nav-links a { padding: 10px 15px; border-left: 1px solid var(--editorial-line); }
+.mobile-links { display: none; }
 .language { padding: 0; overflow: hidden; border: 1px solid var(--editorial-line); border-radius: 0; background: var(--editorial-white); }
 .language button { padding: 8px 10px; border-radius: 0; }
 .language .active { color: var(--editorial-ink); background: var(--editorial-lime); }
@@ -234,6 +235,9 @@ footer { padding-top: 26px; border-top: 1px solid var(--editorial-line); color: 
 @media (max-width: 800px) {
   main, .case-page, .cv-page, .dreamland-case-page { padding-inline: 14px; }
   nav, .case-nav, .cv-nav, .dreamland-case-nav { height: 72px; }
+  .nav-links { display: none; }
+  .mobile-links { display: flex; gap: 10px; margin-left: auto; }
+  .mobile-links a { display: inline-flex; align-items: center; gap: 5px; text-decoration: none; font-family: 'DM Mono', monospace; font-size: 9px; font-weight: 700; }
   .hero { grid-template-columns: 1fr; margin-top: 18px; }
   .hero-copy { min-height: 0; padding: 32px 23px 38px; }
   .identity-card { min-height: 320px; border-top: 1px solid var(--editorial-line); border-left: 0; }
