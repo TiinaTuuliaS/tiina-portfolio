@@ -18,12 +18,19 @@ The app uses React, React Router, Framer Motion, FastAPI, CrewAI, OpenAI GPT-4.1
 
 Two real example reports are publicly readable. Creating new research is limited to invited testers with an invite code, which keeps experimental API costs manageable. CrewAI is used in this project, not in the portfolio CV chatbot.
 
-## Retkeilyapp
+## ha.ku
+GitHub: https://github.com/TiinaTuuliaS/ha.kumusic
+
+ha.ku is an active browser-based music studio project. It gives the user a space to compose their own beats, develop ideas and save sounds locally.
+
+The application uses React, TypeScript, Web Audio API and IndexedDB. A planned AI feature acts as an assistant for choosing sound worlds that fit the user's music style; it does not compose music for the user.
+
+## Konkari (Retkeilyapp)
 GitHub: https://github.com/TiinaTuuliaS/Retkeilyapp
 
-Retkeilyapp is an active TypeScript project for exploring outdoor destinations and sharing practical observations. It includes account-based profiles, private journals, community sharing, friends, trip planning and offline observation saving.
+Konkari is an active TypeScript project for exploring outdoor destinations and sharing practical observations. It includes account-based profiles, private journals, community sharing, friends, trip planning and offline observation saving.
 
-Offline observations are stored first in IndexedDB and sent later when a connection returns. The app protects account ownership during retries and prevents duplicate submissions. Its backend work includes REST APIs, authentication, PostgreSQL and PostGIS.
+Offline observations are stored first in IndexedDB and sent later when a connection returns. The app protects account ownership during retries and prevents duplicate submissions. Its backend work includes NestJS, REST APIs, authentication, PostgreSQL and PostGIS.
 
 ## Portfolio
 GitHub: https://github.com/TiinaTuuliaS/tiina-portfolio

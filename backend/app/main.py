@@ -12,7 +12,6 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from openai import OpenAI
 from pydantic import BaseModel, EmailStr, Field
-from pypdf import PdfReader
 
 ROOT = Path(__file__).resolve().parents[2]
 load_dotenv(ROOT / ".env")
@@ -42,14 +41,10 @@ def load_profile() -> str:
         projects_text = (ROOT / "me" / "projects.txt").read_text(encoding="utf-8")
     except FileNotFoundError:
         pass
-    pdf_text = ""
-    try:
-        reader = PdfReader(ROOT / "me" / "linkedin.pdf")
-        pdf_text = "\n".join(page.extract_text() or "" for page in reader.pages)
-    except Exception:
-        # The written summary is enough for local development if the PDF is absent.
-        pass
-    return f"## Summary\n{summary}\n\n## Project details\n{projects_text}\n\n## LinkedIn profile\n{pdf_text}"
+    # The maintained text files are the canonical chatbot source. An older LinkedIn
+    # PDF is intentionally not parsed here: PDF text extraction can corrupt Finnish
+    # characters and reintroduce outdated profile information.
+    return f"## Summary\n{summary}\n\n## Project details\n{projects_text}"
 
 
 PROFILE = load_profile()
@@ -62,7 +57,8 @@ request_log_lock = Lock()
 project_examples = (
     "Dreamland v2",
     "AI Market Research Assistant",
-    "Retkeilyapp",
+    "Konkari",
+    "ha.ku",
     "Tiina's Developer Portfolio",
 )
 app = FastAPI(title="Tiina's Developer Portfolio API", version="1.0.0")
