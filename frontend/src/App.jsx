@@ -5,8 +5,8 @@ import { LanguageSwitch, useLanguage } from './language'
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
 const skillGroups = [
-  { title: 'Full-stack web development', skills: ['React', 'TypeScript', 'JavaScript', 'React Router', 'Framer Motion', 'Node.js', 'Express', 'Python', 'FastAPI'] },
-  { title: 'Databases & backend', skills: ['MongoDB', 'Mongoose', 'SQLite', 'SQLAlchemy', 'REST APIs', 'Authentication'] },
+  { title: 'Full-stack web development', skills: ['React', 'TypeScript', 'JavaScript', 'C#', 'React Router', 'Framer Motion', 'Node.js', 'Express', 'Python', 'FastAPI'] },
+  { title: 'Databases & backend', skills: ['Azure', 'MongoDB', 'Mongoose', 'SQLite', 'SQLAlchemy', 'REST APIs', 'Authentication'] },
   { title: 'AI development', skills: ['OpenAI API', 'GPT-4.1', 'LLM applications', 'CrewAI', 'AI agents', 'Serper', 'Pydantic'] },
   { title: 'Tools & integrations', skills: ['Git', 'GitHub', 'Docker', 'Railway', 'Stripe', 'Resend', 'Cloudinary', 'Redis'] },
   { title: 'Testing & quality', skills: ['unittest', 'Jest', 'React Testing Library', 'Structured validation'] },

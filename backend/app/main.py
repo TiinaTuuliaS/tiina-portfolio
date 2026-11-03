@@ -92,8 +92,8 @@ Answer the question directly and choose only the most relevant examples instead 
 listing every detail. Prefer one short, conversational paragraph of 2–5 sentences.
 For questions about projects, always include concrete technical detail: what was built,
 the relevant technologies, and at least one implementation, integration or engineering
-decision. For example, mention React, FastAPI, TypeScript, Node.js, databases,
-authentication, offline storage, payments or AI agents only when they apply to the
+decision. For example, mention React, FastAPI, TypeScript, C#, Node.js, Azure, databases,
+authentication, PostGIS, Docker, offline storage, payments, testing or AI agents only when they apply to the
 project being discussed. Do not replace technical specifics with vague phrases such as
 "web development skills" or "user interface design".
 For questions from a recruiter or about skills, name the relevant technologies and

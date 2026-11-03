@@ -10,7 +10,7 @@ I enjoy learning continuously, solving practical problems and combining creativi
 
 I build web applications and AI-powered experiences, especially projects that use LLMs in practical, user-friendly ways. This CV chatbot is one example: I designed and built it to make my background, skills and personality easier to explore than through a traditional CV alone.
 
-My technical toolkit includes Python, JavaScript, TypeScript, React, Node.js, C#, MongoDB, SQL and PostgreSQL. I have also worked with REST APIs, authentication, cloud services, payments and modern frontend tooling.
+My technical toolkit includes Python, JavaScript, TypeScript, C#, React, Node.js, FastAPI and NestJS. I work with MongoDB, SQLite, SQL, PostgreSQL and PostGIS, and have experience with REST APIs, authentication, Azure, Docker and cloud deployments. My AI work includes the OpenAI API, LLM applications, CrewAI agents, Pydantic validation and structured evaluation. I also use Git, GitHub, automated testing tools such as unittest, Jest and React Testing Library, plus integrations including Stripe, Resend, Cloudinary and Redis.
 
 ## How I work
 

@@ -26,6 +26,10 @@
 .cv-header h1 { margin: 0 0 16px; color: #40383d; font-size: clamp(58px, 10vw, 112px); line-height: .82; letter-spacing: -6px; }
 .cv-header h1 em { color: #aa7272; font-style: normal; }
 .cv-role { margin: 0; color: #75666a; font-size: 16px; }
+.cv-header-aside { display: grid; justify-items: end; align-content: start; gap: 16px; }
+.cv-portrait { position: relative; width: 154px; height: 190px; margin: 0; overflow: hidden; border: 1px solid #e5cbc5; background: #f7e7e2; box-shadow: 8px 8px 0 #e6edc7; }
+.cv-portrait img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 22%; filter: saturate(.92); }
+.cv-portrait figcaption { position: absolute; right: 0; bottom: 0; padding: 6px 8px; background: #40383d; color: #fffdf9; font-family: 'DM Mono', monospace; font-size: 8px; font-weight: bold; letter-spacing: .7px; }
 .cv-actions { display: flex; align-items: start; justify-content: end; gap: 10px; flex-wrap: wrap; }
 .cv-actions button { border: 0; cursor: pointer; }
 .cv-actions .primary { background: #a97373; }
@@ -58,6 +62,7 @@
 .cv-tech-list span { padding: 8px 11px; border: 1px solid #ead8d0; border-radius: 999px; background: #fff6ce; color: #5c4d51; font-size: 13px; }
 .cv-tech-list span:nth-child(3n) { background: #e6edc7; border-color: #c7d295; }
 .cv-tech-list span:nth-child(4n) { background: #ffe0df; border-color: #efc6c6; }
+.cv-references { margin: 8px 0 0; color: #756b70; font-size: 13px; font-style: italic; }
 
 .cv-footer { display: flex; justify-content: space-between; gap: 28px; padding-top: 34px; margin-top: 42px; border-top: 1px solid #efd8d2; color: #6e6065; }
 .cv-footer div { display: grid; gap: 5px; }
@@ -70,6 +75,8 @@
   .cv-back { font-size: 12px; }
   .cv-document { padding: 28px 22px; border-radius: 24px; }
   .cv-header, .cv-footer { flex-direction: column; }
+  .cv-header-aside { width: 100%; grid-template-columns: 1fr auto; align-items: end; }
+  .cv-portrait { width: 128px; height: 160px; }
   .cv-actions { justify-content: start; }
   .cv-grid { grid-template-columns: 1fr; gap: 0; }
   .timeline-item { grid-template-columns: 1fr; gap: 4px; }
@@ -86,6 +93,7 @@
   .cv-document { max-width: none; padding: 0; border: 0; border-radius: 0; box-shadow: none; background: #fff; }
   .cv-header { padding-bottom: 24px; }
   .cv-header h1 { font-size: 62px; }
+  .cv-portrait { width: 118px; height: 148px; box-shadow: 5px 5px 0 #e6edc7; }
   .cv-intro { padding: 25px 0; }
   .cv-grid { gap: 40px; }
   .timeline { gap: 16px; }
